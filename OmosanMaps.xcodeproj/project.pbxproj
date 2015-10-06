@@ -1,0 +1,424 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CB28C03D1BC3DE6E0082F831 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB28C03C1BC3DE6E0082F831 /* AppDelegate.swift */; };
+		CB28C03F1BC3DE6E0082F831 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB28C03E1BC3DE6E0082F831 /* ViewController.swift */; };
+		CB28C0421BC3DE6E0082F831 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB28C0401BC3DE6E0082F831 /* Main.storyboard */; };
+		CB28C0441BC3DE6E0082F831 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB28C0431BC3DE6E0082F831 /* Images.xcassets */; };
+		CB28C0471BC3DE6E0082F831 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB28C0451BC3DE6E0082F831 /* LaunchScreen.xib */; };
+		CB28C0531BC3DE6E0082F831 /* OmosanMapsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB28C0521BC3DE6E0082F831 /* OmosanMapsTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CB28C04D1BC3DE6E0082F831 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CB28C02F1BC3DE6E0082F831 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CB28C0361BC3DE6E0082F831;
+			remoteInfo = OmosanMaps;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		CB28C0371BC3DE6E0082F831 /* OmosanMaps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OmosanMaps.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CB28C03B1BC3DE6E0082F831 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CB28C03C1BC3DE6E0082F831 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		CB28C03E1BC3DE6E0082F831 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CB28C0411BC3DE6E0082F831 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		CB28C0431BC3DE6E0082F831 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		CB28C0461BC3DE6E0082F831 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		CB28C04C1BC3DE6E0082F831 /* OmosanMapsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OmosanMapsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CB28C0511BC3DE6E0082F831 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CB28C0521BC3DE6E0082F831 /* OmosanMapsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OmosanMapsTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CB28C0341BC3DE6E0082F831 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CB28C0491BC3DE6E0082F831 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CB28C02E1BC3DE6E0082F831 = {
+			isa = PBXGroup;
+			children = (
+				CB28C0391BC3DE6E0082F831 /* OmosanMaps */,
+				CB28C04F1BC3DE6E0082F831 /* OmosanMapsTests */,
+				CB28C0381BC3DE6E0082F831 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CB28C0381BC3DE6E0082F831 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CB28C0371BC3DE6E0082F831 /* OmosanMaps.app */,
+				CB28C04C1BC3DE6E0082F831 /* OmosanMapsTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CB28C0391BC3DE6E0082F831 /* OmosanMaps */ = {
+			isa = PBXGroup;
+			children = (
+				CB28C03C1BC3DE6E0082F831 /* AppDelegate.swift */,
+				CB28C03E1BC3DE6E0082F831 /* ViewController.swift */,
+				CB28C0401BC3DE6E0082F831 /* Main.storyboard */,
+				CB28C0431BC3DE6E0082F831 /* Images.xcassets */,
+				CB28C0451BC3DE6E0082F831 /* LaunchScreen.xib */,
+				CB28C03A1BC3DE6E0082F831 /* Supporting Files */,
+			);
+			path = OmosanMaps;
+			sourceTree = "<group>";
+		};
+		CB28C03A1BC3DE6E0082F831 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CB28C03B1BC3DE6E0082F831 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CB28C04F1BC3DE6E0082F831 /* OmosanMapsTests */ = {
+			isa = PBXGroup;
+			children = (
+				CB28C0521BC3DE6E0082F831 /* OmosanMapsTests.swift */,
+				CB28C0501BC3DE6E0082F831 /* Supporting Files */,
+			);
+			path = OmosanMapsTests;
+			sourceTree = "<group>";
+		};
+		CB28C0501BC3DE6E0082F831 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CB28C0511BC3DE6E0082F831 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CB28C0361BC3DE6E0082F831 /* OmosanMaps */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CB28C0561BC3DE6E0082F831 /* Build configuration list for PBXNativeTarget "OmosanMaps" */;
+			buildPhases = (
+				CB28C0331BC3DE6E0082F831 /* Sources */,
+				CB28C0341BC3DE6E0082F831 /* Frameworks */,
+				CB28C0351BC3DE6E0082F831 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OmosanMaps;
+			productName = OmosanMaps;
+			productReference = CB28C0371BC3DE6E0082F831 /* OmosanMaps.app */;
+			productType = "com.apple.product-type.application";
+		};
+		CB28C04B1BC3DE6E0082F831 /* OmosanMapsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CB28C0591BC3DE6E0082F831 /* Build configuration list for PBXNativeTarget "OmosanMapsTests" */;
+			buildPhases = (
+				CB28C0481BC3DE6E0082F831 /* Sources */,
+				CB28C0491BC3DE6E0082F831 /* Frameworks */,
+				CB28C04A1BC3DE6E0082F831 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CB28C04E1BC3DE6E0082F831 /* PBXTargetDependency */,
+			);
+			name = OmosanMapsTests;
+			productName = OmosanMapsTests;
+			productReference = CB28C04C1BC3DE6E0082F831 /* OmosanMapsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CB28C02F1BC3DE6E0082F831 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0640;
+				ORGANIZATIONNAME = "*";
+				TargetAttributes = {
+					CB28C0361BC3DE6E0082F831 = {
+						CreatedOnToolsVersion = 6.4;
+					};
+					CB28C04B1BC3DE6E0082F831 = {
+						CreatedOnToolsVersion = 6.4;
+						TestTargetID = CB28C0361BC3DE6E0082F831;
+					};
+				};
+			};
+			buildConfigurationList = CB28C0321BC3DE6E0082F831 /* Build configuration list for PBXProject "OmosanMaps" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CB28C02E1BC3DE6E0082F831;
+			productRefGroup = CB28C0381BC3DE6E0082F831 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CB28C0361BC3DE6E0082F831 /* OmosanMaps */,
+				CB28C04B1BC3DE6E0082F831 /* OmosanMapsTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CB28C0351BC3DE6E0082F831 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CB28C0421BC3DE6E0082F831 /* Main.storyboard in Resources */,
+				CB28C0471BC3DE6E0082F831 /* LaunchScreen.xib in Resources */,
+				CB28C0441BC3DE6E0082F831 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CB28C04A1BC3DE6E0082F831 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CB28C0331BC3DE6E0082F831 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CB28C03F1BC3DE6E0082F831 /* ViewController.swift in Sources */,
+				CB28C03D1BC3DE6E0082F831 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CB28C0481BC3DE6E0082F831 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CB28C0531BC3DE6E0082F831 /* OmosanMapsTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CB28C04E1BC3DE6E0082F831 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CB28C0361BC3DE6E0082F831 /* OmosanMaps */;
+			targetProxy = CB28C04D1BC3DE6E0082F831 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		CB28C0401BC3DE6E0082F831 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CB28C0411BC3DE6E0082F831 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		CB28C0451BC3DE6E0082F831 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CB28C0461BC3DE6E0082F831 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CB28C0541BC3DE6E0082F831 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		CB28C0551BC3DE6E0082F831 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CB28C0571BC3DE6E0082F831 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = OmosanMaps/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		CB28C0581BC3DE6E0082F831 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = OmosanMaps/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		CB28C05A1BC3DE6E0082F831 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = OmosanMapsTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OmosanMaps.app/OmosanMaps";
+			};
+			name = Debug;
+		};
+		CB28C05B1BC3DE6E0082F831 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = OmosanMapsTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OmosanMaps.app/OmosanMaps";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CB28C0321BC3DE6E0082F831 /* Build configuration list for PBXProject "OmosanMaps" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CB28C0541BC3DE6E0082F831 /* Debug */,
+				CB28C0551BC3DE6E0082F831 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CB28C0561BC3DE6E0082F831 /* Build configuration list for PBXNativeTarget "OmosanMaps" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CB28C0571BC3DE6E0082F831 /* Debug */,
+				CB28C0581BC3DE6E0082F831 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		CB28C0591BC3DE6E0082F831 /* Build configuration list for PBXNativeTarget "OmosanMapsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CB28C05A1BC3DE6E0082F831 /* Debug */,
+				CB28C05B1BC3DE6E0082F831 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CB28C02F1BC3DE6E0082F831 /* Project object */;
+}
