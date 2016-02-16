@@ -14,6 +14,11 @@
 		CB28C0441BC3DE6E0082F831 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB28C0431BC3DE6E0082F831 /* Images.xcassets */; };
 		CB28C0471BC3DE6E0082F831 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB28C0451BC3DE6E0082F831 /* LaunchScreen.xib */; };
 		CB28C0531BC3DE6E0082F831 /* OmosanMapsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB28C0521BC3DE6E0082F831 /* OmosanMapsTests.swift */; };
+		CBEB5F701C7324E400664664 /* DocumentDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEB5F6F1C7324E400664664 /* DocumentDataSource.swift */; };
+		CBEB5F721C73251200664664 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEB5F711C73251200664664 /* Document.swift */; };
+		CBEB5F741C7332C600664664 /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CBEB5F731C7332C600664664 /* libxml2.tbd */; };
+		CBEB5F761C733AFA00664664 /* Folder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEB5F751C733AFA00664664 /* Folder.swift */; };
+		CBEB5F781C733B0600664664 /* Placemark.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEB5F771C733B0600664664 /* Placemark.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +45,11 @@
 		CB28C0511BC3DE6E0082F831 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CB28C0521BC3DE6E0082F831 /* OmosanMapsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OmosanMapsTests.swift; sourceTree = "<group>"; };
 		CBEB5F6A1C72E82C00664664 /* OmosanMaps-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OmosanMaps-Bridging-Header.h"; sourceTree = "<group>"; };
+		CBEB5F6F1C7324E400664664 /* DocumentDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DocumentDataSource.swift; path = Sources/Model/DocumentDataSource.swift; sourceTree = "<group>"; };
+		CBEB5F711C73251200664664 /* Document.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Document.swift; path = Sources/Model/Document.swift; sourceTree = "<group>"; };
+		CBEB5F731C7332C600664664 /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
+		CBEB5F751C733AFA00664664 /* Folder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Folder.swift; path = Sources/Model/Folder.swift; sourceTree = "<group>"; };
+		CBEB5F771C733B0600664664 /* Placemark.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Placemark.swift; path = Sources/Model/Placemark.swift; sourceTree = "<group>"; };
 		D628FE9A311AE4DA116053B4 /* Pods-OmosanMaps.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OmosanMaps.release.xcconfig"; path = "Pods/Target Support Files/Pods-OmosanMaps/Pods-OmosanMaps.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -48,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CBEB5F741C7332C600664664 /* libxml2.tbd in Frameworks */,
 				86A2B90E5DD0EF6D7E490ED0 /* Pods_OmosanMaps.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -94,6 +105,7 @@
 		CB28C0391BC3DE6E0082F831 /* OmosanMaps */ = {
 			isa = PBXGroup;
 			children = (
+				CBEB5F6E1C73248500664664 /* Model */,
 				CB28C03C1BC3DE6E0082F831 /* AppDelegate.swift */,
 				CB28C03E1BC3DE6E0082F831 /* ViewController.swift */,
 				CB28C0401BC3DE6E0082F831 /* Main.storyboard */,
@@ -130,9 +142,21 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		CBEB5F6E1C73248500664664 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CBEB5F6F1C7324E400664664 /* DocumentDataSource.swift */,
+				CBEB5F711C73251200664664 /* Document.swift */,
+				CBEB5F751C733AFA00664664 /* Folder.swift */,
+				CBEB5F771C733B0600664664 /* Placemark.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		D0974A6E77E5E1B0F449FCA8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CBEB5F731C7332C600664664 /* libxml2.tbd */,
 				2037503C28E63398D6565A5D /* Pods_OmosanMaps.framework */,
 			);
 			name = Frameworks;
@@ -290,8 +314,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CBEB5F721C73251200664664 /* Document.swift in Sources */,
+				CBEB5F761C733AFA00664664 /* Folder.swift in Sources */,
 				CB28C03F1BC3DE6E0082F831 /* ViewController.swift in Sources */,
 				CB28C03D1BC3DE6E0082F831 /* AppDelegate.swift in Sources */,
+				CBEB5F781C733B0600664664 /* Placemark.swift in Sources */,
+				CBEB5F701C7324E400664664 /* DocumentDataSource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
