@@ -9,16 +9,17 @@
 /* Begin PBXBuildFile section */
 		86A2B90E5DD0EF6D7E490ED0 /* Pods_OmosanMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2037503C28E63398D6565A5D /* Pods_OmosanMaps.framework */; };
 		CB28C03D1BC3DE6E0082F831 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB28C03C1BC3DE6E0082F831 /* AppDelegate.swift */; };
-		CB28C03F1BC3DE6E0082F831 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB28C03E1BC3DE6E0082F831 /* ViewController.swift */; };
 		CB28C0421BC3DE6E0082F831 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB28C0401BC3DE6E0082F831 /* Main.storyboard */; };
 		CB28C0441BC3DE6E0082F831 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB28C0431BC3DE6E0082F831 /* Images.xcassets */; };
 		CB28C0471BC3DE6E0082F831 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB28C0451BC3DE6E0082F831 /* LaunchScreen.xib */; };
 		CB28C0531BC3DE6E0082F831 /* OmosanMapsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB28C0521BC3DE6E0082F831 /* OmosanMapsTests.swift */; };
+		CBA1E5461C74807500619CFC /* PlaceListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA1E5451C74807500619CFC /* PlaceListViewController.swift */; };
 		CBEB5F701C7324E400664664 /* DocumentDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEB5F6F1C7324E400664664 /* DocumentDataSource.swift */; };
 		CBEB5F721C73251200664664 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEB5F711C73251200664664 /* Document.swift */; };
 		CBEB5F741C7332C600664664 /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CBEB5F731C7332C600664664 /* libxml2.tbd */; };
 		CBEB5F761C733AFA00664664 /* Folder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEB5F751C733AFA00664664 /* Folder.swift */; };
 		CBEB5F781C733B0600664664 /* Placemark.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEB5F771C733B0600664664 /* Placemark.swift */; };
+		CBFD09281C7B2C7B00A2470B /* PlaceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFD09271C7B2C7B00A2470B /* PlaceDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,19 +38,20 @@
 		CB28C0371BC3DE6E0082F831 /* OmosanMaps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OmosanMaps.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB28C03B1BC3DE6E0082F831 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CB28C03C1BC3DE6E0082F831 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CB28C03E1BC3DE6E0082F831 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		CB28C0411BC3DE6E0082F831 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CB28C0431BC3DE6E0082F831 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		CB28C0461BC3DE6E0082F831 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		CB28C04C1BC3DE6E0082F831 /* OmosanMapsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OmosanMapsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB28C0511BC3DE6E0082F831 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CB28C0521BC3DE6E0082F831 /* OmosanMapsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OmosanMapsTests.swift; sourceTree = "<group>"; };
+		CBA1E5451C74807500619CFC /* PlaceListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlaceListViewController.swift; path = Sources/Place/PlaceListViewController.swift; sourceTree = "<group>"; };
 		CBEB5F6A1C72E82C00664664 /* OmosanMaps-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OmosanMaps-Bridging-Header.h"; sourceTree = "<group>"; };
 		CBEB5F6F1C7324E400664664 /* DocumentDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DocumentDataSource.swift; path = Sources/Model/DocumentDataSource.swift; sourceTree = "<group>"; };
 		CBEB5F711C73251200664664 /* Document.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Document.swift; path = Sources/Model/Document.swift; sourceTree = "<group>"; };
 		CBEB5F731C7332C600664664 /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
 		CBEB5F751C733AFA00664664 /* Folder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Folder.swift; path = Sources/Model/Folder.swift; sourceTree = "<group>"; };
 		CBEB5F771C733B0600664664 /* Placemark.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Placemark.swift; path = Sources/Model/Placemark.swift; sourceTree = "<group>"; };
+		CBFD09271C7B2C7B00A2470B /* PlaceDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlaceDetailViewController.swift; path = Sources/Place/PlaceDetailViewController.swift; sourceTree = "<group>"; };
 		D628FE9A311AE4DA116053B4 /* Pods-OmosanMaps.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OmosanMaps.release.xcconfig"; path = "Pods/Target Support Files/Pods-OmosanMaps/Pods-OmosanMaps.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -105,9 +107,9 @@
 		CB28C0391BC3DE6E0082F831 /* OmosanMaps */ = {
 			isa = PBXGroup;
 			children = (
+				CBA1E5441C74805500619CFC /* Place */,
 				CBEB5F6E1C73248500664664 /* Model */,
 				CB28C03C1BC3DE6E0082F831 /* AppDelegate.swift */,
-				CB28C03E1BC3DE6E0082F831 /* ViewController.swift */,
 				CB28C0401BC3DE6E0082F831 /* Main.storyboard */,
 				CB28C0431BC3DE6E0082F831 /* Images.xcassets */,
 				CB28C0451BC3DE6E0082F831 /* LaunchScreen.xib */,
@@ -140,6 +142,15 @@
 				CB28C0511BC3DE6E0082F831 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CBA1E5441C74805500619CFC /* Place */ = {
+			isa = PBXGroup;
+			children = (
+				CBA1E5451C74807500619CFC /* PlaceListViewController.swift */,
+				CBFD09271C7B2C7B00A2470B /* PlaceDetailViewController.swift */,
+			);
+			name = Place;
 			sourceTree = "<group>";
 		};
 		CBEB5F6E1C73248500664664 /* Model */ = {
@@ -316,7 +327,8 @@
 			files = (
 				CBEB5F721C73251200664664 /* Document.swift in Sources */,
 				CBEB5F761C733AFA00664664 /* Folder.swift in Sources */,
-				CB28C03F1BC3DE6E0082F831 /* ViewController.swift in Sources */,
+				CBFD09281C7B2C7B00A2470B /* PlaceDetailViewController.swift in Sources */,
+				CBA1E5461C74807500619CFC /* PlaceListViewController.swift in Sources */,
 				CB28C03D1BC3DE6E0082F831 /* AppDelegate.swift in Sources */,
 				CBEB5F781C733B0600664664 /* Placemark.swift in Sources */,
 				CBEB5F701C7324E400664664 /* DocumentDataSource.swift in Sources */,

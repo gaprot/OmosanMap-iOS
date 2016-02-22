@@ -13,7 +13,7 @@ import Ji
 struct Placemark
 {
     let name: String
-    let description: String
+    let descriptionText: String
     let coordinate: CLLocationCoordinate2D
 }
 
@@ -21,7 +21,7 @@ extension Placemark
 {
     static func fromJiNode(node: JiNode) -> Placemark {
         var name = ""
-        var description = ""
+        var descriptionText = ""
         var coordinate = CLLocationCoordinate2D()
         for childNode in node.children {
             guard let childNodeName = childNode.name?.lowercaseString else {
@@ -32,14 +32,14 @@ extension Placemark
             case "name":
                 name = childNode.content ?? ""
             case "description":
-                description = childNode.content ?? ""
+                descriptionText = childNode.content ?? ""
             case "point":
                 coordinate = CLLocationCoordinate2D.fromJiNode(childNode)
             default:
                 break
             }
         }
-        return Placemark(name: name, description: description, coordinate: coordinate)
+        return Placemark(name: name, descriptionText: descriptionText, coordinate: coordinate)
     }
 }
 
@@ -60,8 +60,8 @@ extension CLLocationCoordinate2D
                 let coordinateValues = coordinates.componentsSeparatedByString(",")
                 
                 if
-                    let latitude = Double(coordinateValues[0]),
-                    let longitude = Double(coordinateValues[1])
+                    let longitude = Double(coordinateValues[0]),
+                    let latitude = Double(coordinateValues[1])
                 {
                     coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
                 }

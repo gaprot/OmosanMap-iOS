@@ -11,16 +11,11 @@ import Alamofire
 import SSZipArchive
 import Ji
 
-enum LoadError: ErrorType
-{
-    
-}
-
 class DocumentDataSource
 {
     private (set) var document: Document?
     
-    func fetch(URLString: String, handler: (error: LoadError?) -> Void) {
+    func fetch(URLString: String, handler: (error: ErrorType?) -> Void) {
         let directoryURL = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)[0]
         var localURL: NSURL?
         Alamofire
@@ -33,13 +28,18 @@ class DocumentDataSource
                     localURL = directoryURL.URLByAppendingPathComponent(pathComponent!)
                     return localURL!
             }).response{ (request, response, data, error) in
-                if let localPath = localURL?.path {
-                    let kmlDirPath = localPath.stringByReplacingOccurrencesOfString(".kmz", withString: "")
-                    if SSZipArchive.unzipFileAtPath(localPath, toDestination: kmlDirPath) {
-                        let kmlPath = kmlDirPath.stringByAppendingString("/doc.kml")
-                        self.parseKML(kmlPath)
-                        if let kml = try? String(contentsOfFile: kmlPath, encoding: NSUTF8StringEncoding) {
-                            print(kml)
+                if false {//let error = error {		// TODO: 通信成功しても、ファイル上書きエラーが来てしまう
+                    handler(error: error)
+                } else {
+                    if let localPath = localURL?.path {
+                        let kmlDirPath = localPath.stringByReplacingOccurrencesOfString(".kmz", withString: "")
+                        if SSZipArchive.unzipFileAtPath(localPath, toDestination: kmlDirPath) {
+                            let kmlPath = kmlDirPath.stringByAppendingString("/doc.kml")
+                            self.parseKML(kmlPath)
+                            handler(error: nil)
+//                            if let kml = try? String(contentsOfFile: kmlPath, encoding: NSUTF8StringEncoding) {
+//                                print(kml)
+//                            }
                         }
                     }
                 }
