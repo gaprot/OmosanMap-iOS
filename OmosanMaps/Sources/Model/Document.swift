@@ -9,6 +9,9 @@
 import Foundation
 import Ji
 
+/**
+ *  ドキュメント。
+ */
 struct Document
 {
     let name: String
@@ -18,6 +21,13 @@ struct Document
 
 extension Document
 {
+    /**
+     XML ノードからドキュメントを求める。
+     
+     - parameter node: Document ノード。
+     
+     - returns: ドキュメントを返す。
+     */
     static func fromJiNode(node: JiNode) -> Document {
         var name = ""
         var description = ""

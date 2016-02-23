@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AlamofireImage
 
 class PlaceListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
@@ -45,6 +46,7 @@ class PlaceListViewController: UIViewController, UITableViewDataSource, UITableV
         
         switch (identifier) {
         case "showDetail":
+            // 詳細画面へ
             guard
                 let cell = sender as? UITableViewCell,
                 let indexPath = self.tableView.indexPathForCell(cell),
@@ -87,6 +89,12 @@ class PlaceListViewController: UIViewController, UITableViewDataSource, UITableV
 
         cell.textLabel?.text = placemark.name
         cell.detailTextLabel?.text = placemark.descriptionText
+        if let imageURL = placemark.imageURLs.first {
+            let placeholderImage = UIImage(named: "placeholder")
+            cell.imageView?.af_setImageWithURL(imageURL, placeholderImage: placeholderImage)
+        } else {
+            cell.imageView?.image = nil
+        }
         
         return cell
     }

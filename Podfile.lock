@@ -1,5 +1,7 @@
 PODS:
   - Alamofire (3.2.0)
+  - AlamofireImage (2.3.1):
+    - Alamofire (~> 3.2)
   - Ji (1.2.0):
     - Ji/Ji (= 1.2.0)
   - Ji/Ji (1.2.0):
@@ -9,11 +11,13 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
+  - AlamofireImage
   - Ji
   - SSZipArchive
 
 SPEC CHECKSUMS:
   Alamofire: 4da478599fccddff361205c8929333d7fe18dceb
+  AlamofireImage: e52336282757bbe1644f075d6cb85f19c891f939
   Ji: ddebb22f9ac445db6e884b66f78ea74fb135fdb7
   SSZipArchive: de3d215ab73f87db627f81f2ce24f1731e3886c3
 

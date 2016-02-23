@@ -9,6 +9,9 @@
 import Foundation
 import Ji
 
+/**
+ *  フォルダ。
+ */
 struct Folder
 {
     let name: String
@@ -17,6 +20,13 @@ struct Folder
 
 extension Folder
 {
+    /**
+     XML ノードからフォルダを求める。
+     
+     - parameter node: Folder ノード。
+     
+     - returns: フォルダを返す。
+     */
     static func fromJiNode(node: JiNode) -> Folder {
         var name = ""
         var placemarks: [Placemark] = []
