@@ -16,6 +16,11 @@ class DocumentDataSource
     private (set) var document: Document?
     
     func fetch(URLString: String, handler: (error: ErrorType?) -> Void) {
+        if self.document != nil {
+            handler(error: nil)
+            return
+        }
+        
         let directoryURL = NSFileManager.defaultManager().URLsForDirectory(.CachesDirectory, inDomains: .UserDomainMask)[0]
         var localURL: NSURL?
         Alamofire
@@ -49,6 +54,10 @@ class DocumentDataSource
                 }
         }
         
+    }
+    
+    func clear() {
+        self.document = nil
     }
     
 // MARK: - parse KML
