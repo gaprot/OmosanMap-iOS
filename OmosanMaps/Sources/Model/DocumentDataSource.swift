@@ -31,8 +31,10 @@ class DocumentDataSource
                     let pathComponent = response.suggestedFilename
                     
                     localURL = directoryURL.URLByAppendingPathComponent(pathComponent!)
-                    try! NSFileManager.defaultManager().removeItemAtURL(localURL!)
 
+                    if NSFileManager.defaultManager().fileExistsAtPath(localURL!.path!) {
+                        try! NSFileManager.defaultManager().removeItemAtURL(localURL!)
+                    }
                     return localURL!
             }).response{ (request, response, data, error) in
                 if let error = error {
@@ -40,7 +42,10 @@ class DocumentDataSource
                 } else {
                     if let localPath = localURL?.path {
                         let kmlDirPath = localPath.stringByReplacingOccurrencesOfString(".kmz", withString: "")
-                        try! NSFileManager.defaultManager().removeItemAtPath(kmlDirPath)
+                        
+                        if NSFileManager.defaultManager().fileExistsAtPath(kmlDirPath) {
+                            try! NSFileManager.defaultManager().removeItemAtPath(kmlDirPath)
+                        }
                         
                         if SSZipArchive.unzipFileAtPath(localPath, toDestination: kmlDirPath) {
                             let kmlPath = kmlDirPath.stringByAppendingString("/doc.kml")
