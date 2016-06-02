@@ -8,11 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		86A2B90E5DD0EF6D7E490ED0 /* Pods_OmosanMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2037503C28E63398D6565A5D /* Pods_OmosanMaps.framework */; };
+		CB1D56E51CFFFF720065B6B7 /* SearchOptionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB1D56E41CFFFF720065B6B7 /* SearchOptionsController.swift */; };
+		CB1D56E71D0002160065B6B7 /* SearchOptionsGenreListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB1D56E61D0002160065B6B7 /* SearchOptionsGenreListViewController.swift */; };
 		CB28C03D1BC3DE6E0082F831 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB28C03C1BC3DE6E0082F831 /* AppDelegate.swift */; };
 		CB28C0421BC3DE6E0082F831 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB28C0401BC3DE6E0082F831 /* Main.storyboard */; };
 		CB28C0441BC3DE6E0082F831 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB28C0431BC3DE6E0082F831 /* Images.xcassets */; };
 		CB28C0471BC3DE6E0082F831 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB28C0451BC3DE6E0082F831 /* LaunchScreen.xib */; };
 		CB28C0531BC3DE6E0082F831 /* OmosanMapsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB28C0521BC3DE6E0082F831 /* OmosanMapsTests.swift */; };
+		CB757B2D1CF7F7400073A17C /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB757B2C1CF7F7400073A17C /* MapViewController.swift */; };
 		CBA1E5461C74807500619CFC /* PlaceListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA1E5451C74807500619CFC /* PlaceListViewController.swift */; };
 		CBEB5F701C7324E400664664 /* DocumentDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEB5F6F1C7324E400664664 /* DocumentDataSource.swift */; };
 		CBEB5F721C73251200664664 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEB5F711C73251200664664 /* Document.swift */; };
@@ -35,6 +38,8 @@
 /* Begin PBXFileReference section */
 		2037503C28E63398D6565A5D /* Pods_OmosanMaps.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OmosanMaps.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C48CF2B9C55E5445B685AC0 /* Pods-OmosanMaps.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OmosanMaps.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OmosanMaps/Pods-OmosanMaps.debug.xcconfig"; sourceTree = "<group>"; };
+		CB1D56E41CFFFF720065B6B7 /* SearchOptionsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchOptionsController.swift; path = Sources/Map/SearchOptionsController.swift; sourceTree = "<group>"; };
+		CB1D56E61D0002160065B6B7 /* SearchOptionsGenreListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchOptionsGenreListViewController.swift; path = Sources/Map/SearchOptionsGenreListViewController.swift; sourceTree = "<group>"; };
 		CB28C0371BC3DE6E0082F831 /* OmosanMaps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OmosanMaps.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB28C03B1BC3DE6E0082F831 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CB28C03C1BC3DE6E0082F831 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -44,6 +49,7 @@
 		CB28C04C1BC3DE6E0082F831 /* OmosanMapsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OmosanMapsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB28C0511BC3DE6E0082F831 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CB28C0521BC3DE6E0082F831 /* OmosanMapsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OmosanMapsTests.swift; sourceTree = "<group>"; };
+		CB757B2C1CF7F7400073A17C /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapViewController.swift; path = Sources/Map/MapViewController.swift; sourceTree = "<group>"; };
 		CBA1E5451C74807500619CFC /* PlaceListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlaceListViewController.swift; path = Sources/Place/PlaceListViewController.swift; sourceTree = "<group>"; };
 		CBEB5F6A1C72E82C00664664 /* OmosanMaps-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OmosanMaps-Bridging-Header.h"; sourceTree = "<group>"; };
 		CBEB5F6F1C7324E400664664 /* DocumentDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DocumentDataSource.swift; path = Sources/Model/DocumentDataSource.swift; sourceTree = "<group>"; };
@@ -149,6 +155,9 @@
 			children = (
 				CBA1E5451C74807500619CFC /* PlaceListViewController.swift */,
 				CBFD09271C7B2C7B00A2470B /* PlaceDetailViewController.swift */,
+				CB757B2C1CF7F7400073A17C /* MapViewController.swift */,
+				CB1D56E41CFFFF720065B6B7 /* SearchOptionsController.swift */,
+				CB1D56E61D0002160065B6B7 /* SearchOptionsGenreListViewController.swift */,
 			);
 			name = Place;
 			sourceTree = "<group>";
@@ -330,8 +339,11 @@
 				CBFD09281C7B2C7B00A2470B /* PlaceDetailViewController.swift in Sources */,
 				CBA1E5461C74807500619CFC /* PlaceListViewController.swift in Sources */,
 				CB28C03D1BC3DE6E0082F831 /* AppDelegate.swift in Sources */,
+				CB1D56E71D0002160065B6B7 /* SearchOptionsGenreListViewController.swift in Sources */,
 				CBEB5F781C733B0600664664 /* Placemark.swift in Sources */,
+				CB1D56E51CFFFF720065B6B7 /* SearchOptionsController.swift in Sources */,
 				CBEB5F701C7324E400664664 /* DocumentDataSource.swift in Sources */,
+				CB757B2D1CF7F7400073A17C /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

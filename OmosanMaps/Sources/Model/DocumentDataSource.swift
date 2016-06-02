@@ -13,10 +13,16 @@ import Ji
 
 class DocumentDataSource
 {
+    static let shared: DocumentDataSource = DocumentDataSource()
+    
     private (set) var document: Document?
+
+    var hasDocument: Bool {
+        return self.document != nil
+    }
     
     func fetch(URLString: String, handler: (error: ErrorType?) -> Void) {
-        if self.document != nil {
+        if self.hasDocument {
             handler(error: nil)
             return
         }
@@ -87,5 +93,80 @@ class DocumentDataSource
                 break
             }
         }
+    }
+}
+
+import CoreLocation
+extension DocumentDataSource {
+    class Filter {
+        var folderNames: [String]?
+        var baseLocation: CLLocation?
+        var distance: CLLocationDistance?
+        
+        func addFolderName(name: String) {
+            if self.folderNames == nil {
+                self.folderNames = [name]
+            } else {
+                self.folderNames?.append(name)
+            }
+        }
+        
+        func removeFolderName(name: String) {
+            if let index = self.folderNames?.indexOf(name) {
+                self.folderNames?.removeAtIndex(index)
+            }
+            if self.folderNames?.isEmpty ?? false {
+                self.folderNames = nil
+            }
+        }
+        
+        func hasFolderName(name: String) -> Bool {
+            if let folderNames = self.folderNames {
+                return folderNames.contains(name)
+            } else {
+                return false
+            }
+        }
+    }
+    
+    func placemarksForFilter(filter: Filter) -> [Placemark] {
+        guard let document = self.document else {
+            return []
+        }
+        
+        let folders: [Folder]
+        if let folderNames = filter.folderNames {
+            folders = document.foldersForNames(folderNames)
+        } else {
+            folders = document.folders
+        }
+
+        var placemarks = [Placemark]()
+        if let baseLocation = filter.baseLocation, let distance = filter.distance {
+            for folder in folders {
+                placemarks += folder.placemarksInRange(baseLocation: baseLocation, distance: distance)
+            }
+        } else {
+            for folder in folders {
+                placemarks += folder.placemarks
+            }
+        }
+        
+        return placemarks
+    }
+    
+    func placemarksForCoordinate(coordinate: CLLocationCoordinate2D) -> [Placemark] {
+        guard let document = self.document else {
+            return []
+        }
+
+        var placemarks = [Placemark]()
+        for folder in document.folders {
+            placemarks += folder.placemarks.filter{ (placemark) -> Bool in
+                return placemark.coordinate.latitude == coordinate.latitude && placemark.coordinate.longitude == coordinate.longitude
+            }
+        }
+        
+        return placemarks
     }
 }

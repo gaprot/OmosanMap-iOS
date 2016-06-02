@@ -48,3 +48,20 @@ extension Folder
         return Folder(name: name, placemarks: placemarks)
     }
 }
+
+import CoreLocation
+extension Folder {
+    func placemarksInRange(
+        baseLocation baseLocation: CLLocation,
+        distance: CLLocationDistance
+    ) -> [Placemark] {
+        return self.placemarks.filter { (placemark) -> Bool in
+            let location = CLLocation(
+                latitude: placemark.coordinate.latitude,
+                longitude: placemark.coordinate.longitude
+            )
+            
+            return location.distanceFromLocation(baseLocation) <= distance
+        }
+    }
+}

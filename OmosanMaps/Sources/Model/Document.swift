@@ -52,3 +52,11 @@ extension Document
         return Document(name: name, description: description, folders: folders)
     }
 }
+
+extension Document {
+    func foldersForNames(names: [String]) -> [Folder] {
+        return self.folders.filter { (folder) -> Bool in
+            return names.contains(folder.name)
+        }
+    }
+}
