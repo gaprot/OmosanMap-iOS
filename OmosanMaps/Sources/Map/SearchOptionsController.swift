@@ -13,12 +13,6 @@ class SearchOptions {
 }
 
 class SearchOptionsController: UITableViewController {
-    enum SearchRange: Int {
-        case Unlimited
-        case FiveMinutes
-        case TenMinutes
-    }
-    
     var filter: DocumentDataSource.Filter!
     weak var delegate: SearchOptionsControllerDelegate?
     
@@ -29,6 +23,7 @@ class SearchOptionsController: UITableViewController {
         super.viewDidLoad()
 
         self.updateGenreNameLabel()
+        self.rangeSegmentedControl.selectedSegmentIndex = filter.region?.rawValue ?? 0
     }
 
     override func didReceiveMemoryWarning() {
@@ -54,21 +49,14 @@ class SearchOptionsController: UITableViewController {
     
     @IBAction func rangeDidChange(sender: UISegmentedControl) {
         guard
-            let searchRange = SearchRange(rawValue: sender.selectedSegmentIndex),
+            let region = DocumentDataSource.Filter.Region(rawValue: sender.selectedSegmentIndex),
             let location = LocationService.shared.lastLocation
         else {
             return
         }
 
         self.filter.baseLocation = location
-        switch searchRange {
-        case .Unlimited:
-            self.filter.distance = nil
-        case .FiveMinutes:
-            self.filter.distance = 5.0 * 60		// FIXME: magic!!
-        case .TenMinutes:
-            self.filter.distance = 10.0 * 60	// FIXME: magic!!
-        }
+        self.filter.region = region
 
         self.delegate?.searchOptionsController(self, didChangeFilter: self.filter)
     }

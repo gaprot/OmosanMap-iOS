@@ -106,6 +106,10 @@ extension MapViewController: SearchOptionsControllerDelegate {
 
 private extension MapViewController {
     func loadData() {
+        if DocumentDataSource.shared.hasDocument {
+            return
+        }
+        
         let sourceURLString = "https://www.google.com/maps/d/u/0/kml?mid=zmkzjAlquG4s.k9j-gW9GbmCQ"
         DocumentDataSource.shared.fetch(sourceURLString) { [weak self] (error) in
             if let error = error {

@@ -99,9 +99,38 @@ class DocumentDataSource
 import CoreLocation
 extension DocumentDataSource {
     class Filter {
+        enum Region: Int {
+            case Unlimited
+            case Neighbor
+            case Near
+            
+            var description: String {
+                switch self {
+                case .Unlimited:
+                    return "すべて"
+                case .Neighbor:
+                    return "5分以内"
+                case .Near:
+                    return "10分以内"
+                }
+            }
+            
+            var distance: CLLocationDistance? {
+                switch self {
+                case .Unlimited:
+                    return nil
+                case .Neighbor:
+                    return 5.0 * 60
+                case .Near:
+                    return 10.0 * 60
+                }
+            }
+        }
+        
         var folderNames: [String]?
         var baseLocation: CLLocation?
-        var distance: CLLocationDistance?
+        //var distance: CLLocationDistance?
+        var region: Region?
         
         func addFolderName(name: String) {
             if self.folderNames == nil {
@@ -142,7 +171,7 @@ extension DocumentDataSource {
         }
 
         var placemarks = [Placemark]()
-        if let baseLocation = filter.baseLocation, let distance = filter.distance {
+        if let baseLocation = filter.baseLocation, let distance = filter.region?.distance {
             for folder in folders {
                 placemarks += folder.placemarksInRange(baseLocation: baseLocation, distance: distance)
             }
