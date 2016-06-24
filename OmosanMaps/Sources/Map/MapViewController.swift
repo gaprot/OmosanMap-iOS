@@ -67,13 +67,39 @@ class MapViewController: UIViewController, UIPopoverPresentationControllerDelega
 }
 
 extension MapViewController: MKMapViewDelegate {
-    func mapView(mapView: MKMapView, didSelectAnnotationView view: MKAnnotationView) {
+//    func mapView(mapView: MKMapView, didSelectAnnotationView view: MKAnnotationView) {
+//        self.performSegueWithIdentifier("Detail", sender: nil)
+//    }
+
+    func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         self.performSegueWithIdentifier("Detail", sender: nil)
+    }
+    
+    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
+        // 自分の現在位置を表すアノテーションは除く
+        if annotation === mapView.userLocation {
+            return nil
+        }
+        
+        let identifier = "Pin"
+        let annotationView =
+            mapView.dequeueReusableAnnotationViewWithIdentifier(identifier)
+                ?? MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+        annotationView.annotation = annotation
+        annotationView.image = UIImage(named: "pin")
+        
+        // アノテーションをタップしたら「吹き出し」を表示
+        // annotationのtitleとsubtitle、rightCalloutAccessoryViewが表示される
+        annotationView.canShowCallout = true
+        annotationView.rightCalloutAccessoryView = UIButton(type: .DetailDisclosure)
+        
+        return annotationView
     }
 }
 
 extension MapViewController: SearchOptionsControllerDelegate {
     func searchOptionsController(controller: SearchOptionsController, didChangeFilter: DocumentDataSource.Filter) {
+        self.updateTitle()
         self.updateMap()
     }
 }
@@ -85,21 +111,37 @@ private extension MapViewController {
             if let error = error {
                 print(error)
             } else {
+                self?.updateTitle()
                 self?.updateMap()
                 self?.searchButton.enabled = true
             }
         }
     }
 
+    
+    func updateTitle() {
+        if let folderNames = self.filter.folderNames {
+            self.navigationItem.title = folderNames.joinWithSeparator(",")
+        } else {
+            self.navigationItem.title = "すべて"
+        }
+    }
+    
     func updateMap() {
         self.mapView.removeAnnotations(self.mapView.annotations)
         
         let placemarks = DocumentDataSource.shared.placemarksForFilter(self.filter)
         for placemark in placemarks {
             let annotation = MKPointAnnotation()
+            annotation.title = placemark.name
+            annotation.subtitle = placemark.sanitizedDescriptionText
             annotation.coordinate = placemark.coordinate
             self.mapView.addAnnotation(annotation)
         }
+//        let annotation = MKPointAnnotation()
+//        annotation.title = "東京スカイツリー"
+//        annotation.coordinate = CLLocationCoordinate2D(latitude: 35.710359, longitude: 139.810722)
+//        self.mapView.addAnnotation(annotation)
         
         self.mapView.showAnnotations(self.mapView.annotations, animated: true)
     }

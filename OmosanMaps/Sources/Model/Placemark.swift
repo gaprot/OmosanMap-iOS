@@ -21,6 +21,12 @@ struct Placemark
     let imageURLs: [NSURL]
 }
 
+extension Placemark {
+    var sanitizedDescriptionText: String {
+        return self.descriptionText.stringByReplacingOccurrencesOfString("<[^>]+>", withString: "", options: .RegularExpressionSearch, range: nil)
+    }
+}
+
 extension Placemark
 {
     /**
