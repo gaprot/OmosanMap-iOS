@@ -29,9 +29,18 @@ class SearchOptionsGenreListViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    // ジャンルの指定をクリア
+    @IBAction func clear(sender: AnyObject) {
+        self.filter.folderNames = nil
+        for cell in self.tableView.visibleCells {
+            cell.accessoryType = .None
+        }
+        self.genreDidChange?()
+    }
 }
 
-// MARK: UITableViewDataSource, UITableViewDelegate
+// MARK: - UITableViewDataSource, UITableViewDelegate
 extension SearchOptionsGenreListViewController: UITableViewDataSource, UITableViewDelegate {
     private var document: Document? {
         return DocumentDataSource.shared.document

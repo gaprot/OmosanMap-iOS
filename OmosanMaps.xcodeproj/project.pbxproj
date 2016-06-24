@@ -22,6 +22,7 @@
 		CBEB5F741C7332C600664664 /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CBEB5F731C7332C600664664 /* libxml2.tbd */; };
 		CBEB5F761C733AFA00664664 /* Folder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEB5F751C733AFA00664664 /* Folder.swift */; };
 		CBEB5F781C733B0600664664 /* Placemark.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEB5F771C733B0600664664 /* Placemark.swift */; };
+		CBFCA5461D1CBBEF00A80C39 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFCA5451D1CBBEF00A80C39 /* LocationService.swift */; };
 		CBFD09281C7B2C7B00A2470B /* PlaceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBFD09271C7B2C7B00A2470B /* PlaceDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -57,6 +58,7 @@
 		CBEB5F731C7332C600664664 /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
 		CBEB5F751C733AFA00664664 /* Folder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Folder.swift; path = Sources/Model/Folder.swift; sourceTree = "<group>"; };
 		CBEB5F771C733B0600664664 /* Placemark.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Placemark.swift; path = Sources/Model/Placemark.swift; sourceTree = "<group>"; };
+		CBFCA5451D1CBBEF00A80C39 /* LocationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationService.swift; path = Sources/Services/LocationService.swift; sourceTree = "<group>"; };
 		CBFD09271C7B2C7B00A2470B /* PlaceDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlaceDetailViewController.swift; path = Sources/Place/PlaceDetailViewController.swift; sourceTree = "<group>"; };
 		D628FE9A311AE4DA116053B4 /* Pods-OmosanMaps.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OmosanMaps.release.xcconfig"; path = "Pods/Target Support Files/Pods-OmosanMaps/Pods-OmosanMaps.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -115,6 +117,7 @@
 			children = (
 				CBA1E5441C74805500619CFC /* Place */,
 				CBEB5F6E1C73248500664664 /* Model */,
+				CBFCA5441D1CBBCC00A80C39 /* Services */,
 				CB28C03C1BC3DE6E0082F831 /* AppDelegate.swift */,
 				CB28C0401BC3DE6E0082F831 /* Main.storyboard */,
 				CB28C0431BC3DE6E0082F831 /* Images.xcassets */,
@@ -171,6 +174,14 @@
 				CBEB5F771C733B0600664664 /* Placemark.swift */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		CBFCA5441D1CBBCC00A80C39 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				CBFCA5451D1CBBEF00A80C39 /* LocationService.swift */,
+			);
+			name = Services;
 			sourceTree = "<group>";
 		};
 		D0974A6E77E5E1B0F449FCA8 /* Frameworks */ = {
@@ -340,6 +351,7 @@
 				CBA1E5461C74807500619CFC /* PlaceListViewController.swift in Sources */,
 				CB28C03D1BC3DE6E0082F831 /* AppDelegate.swift in Sources */,
 				CB1D56E71D0002160065B6B7 /* SearchOptionsGenreListViewController.swift in Sources */,
+				CBFCA5461D1CBBEF00A80C39 /* LocationService.swift in Sources */,
 				CBEB5F781C733B0600664664 /* Placemark.swift in Sources */,
 				CB1D56E51CFFFF720065B6B7 /* SearchOptionsController.swift in Sources */,
 				CBEB5F701C7324E400664664 /* DocumentDataSource.swift in Sources */,

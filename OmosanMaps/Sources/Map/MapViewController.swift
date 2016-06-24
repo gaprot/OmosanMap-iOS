@@ -19,7 +19,7 @@ class MapViewController: UIViewController, UIPopoverPresentationControllerDelega
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        LocationService.shared.start()
     }
 
     override func viewWillAppear(animated: Bool) {

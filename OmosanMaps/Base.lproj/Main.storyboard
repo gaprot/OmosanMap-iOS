@@ -86,7 +86,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="OFn-IY-2k1">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OFn-IY-2k1">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <connections>
                                     <outlet property="delegate" destination="VBJ-qP-Xb0" id="zII-HS-wGU"/>
@@ -121,7 +121,7 @@
             </objects>
             <point key="canvasLocation" x="794.5" y="432.5"/>
         </scene>
-        <!--検索オプション-->
+        <!--検索-->
         <scene sceneID="ENN-Gj-HaN">
             <objects>
                 <tableViewController id="WDL-dz-542" customClass="SearchOptionsController" customModule="OmosanMaps" customModuleProvider="target" sceneMemberID="viewController">
@@ -170,6 +170,9 @@
                                                         <segment title="5分以内"/>
                                                         <segment title="10分以内"/>
                                                     </segments>
+                                                    <connections>
+                                                        <action selector="rangeDidChange:" destination="WDL-dz-542" eventType="valueChanged" id="3kx-N5-Zk5"/>
+                                                    </connections>
                                                 </segmentedControl>
                                             </subviews>
                                             <constraints>
@@ -186,9 +189,10 @@
                             <outlet property="delegate" destination="WDL-dz-542" id="7Mm-R9-C9q"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="検索オプション" id="Imf-3j-cTA"/>
+                    <navigationItem key="navigationItem" title="検索" id="Imf-3j-cTA"/>
                     <connections>
                         <outlet property="genreNameLabel" destination="5SX-fo-pf4" id="v1J-Tf-x6g"/>
+                        <outlet property="rangeSegmentedControl" destination="NWY-MM-Mwr" id="hkZ-dr-8E3"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eXa-xh-byv" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -243,7 +247,13 @@
                             <constraint firstItem="R0c-UE-4Io" firstAttribute="leading" secondItem="7bl-GA-oPi" secondAttribute="leading" id="qEb-Zc-qoU"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="ジャンル" id="ZaA-oB-Plu"/>
+                    <navigationItem key="navigationItem" title="ジャンル" id="ZaA-oB-Plu">
+                        <barButtonItem key="rightBarButtonItem" title="すべて" id="N7e-ML-5yn">
+                            <connections>
+                                <action selector="clear:" destination="7HI-CM-RJH" id="KSj-Hl-aTb"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="R0c-UE-4Io" id="df4-sB-kSx"/>
                     </connections>
