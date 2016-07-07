@@ -40,6 +40,24 @@ class PlaceDetailViewController: UIViewController {
     }
     */
 
+    @IBAction func showActions(sender: AnyObject) {
+        let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
+        
+        actionSheet.addAction(UIAlertAction(title: "Safariで検索", style: .Default) { (action) in
+            self.searchInSafari()
+        })
+        actionSheet.addAction(UIAlertAction(title: "マップで開く", style: .Default) { (action) in
+            self.openInMap()
+        })
+        
+        actionSheet.addAction(UIAlertAction(title: "キャンセル", style: .Cancel, handler: nil))
+        
+        self.presentViewController(actionSheet, animated: true, completion: nil)
+    }
+    
+}
+
+private extension PlaceDetailViewController {
     private func update()
     {
         guard let placemark = self.placemark else {
@@ -58,7 +76,7 @@ class PlaceDetailViewController: UIViewController {
             200
         )
         self.mapView.region = region
-
+        
         self.navigationItem.title = placemark.name
         
         if
@@ -67,8 +85,47 @@ class PlaceDetailViewController: UIViewController {
                 data: descriptionTextData,
                 options: [NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType],
                 documentAttributes: nil
-        ) {
+            ) {
             self.descriptionTextView.attributedText = attributedDescriptionText
         }
+    }
+    
+    /**
+     Safariで検索.
+     */
+    private func searchInSafari() {
+        guard
+            let placemark = self.placemark,
+            let url = NSURL(string: "x-web-search://?\(placemark.name.encodingToURIRepresentation())")
+            else {
+                return
+        }
+        
+        UIApplication.sharedApplication().openURL(url)
+    }
+    
+    /**
+     マップで開く.
+     */
+    private func openInMap() {
+        guard
+            let placemark = self.placemark,
+            let url = NSURL(string: "https://maps.apple.com/?ll=\(placemark.coordinate.latitude),\(placemark.coordinate.longitude)")
+        else {
+            return
+        }
+        
+        UIApplication.sharedApplication().openURL(url)
+    }
+}
+
+private extension String {
+    /**
+     URLで使用できる文字にエスケープする.
+     
+     - returns: エスケープされた文字列を返す.
+     */
+    func encodingToURIRepresentation() -> String {
+        return self.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.alphanumericCharacterSet())!
     }
 }

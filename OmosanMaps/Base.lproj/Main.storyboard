@@ -262,7 +262,7 @@
             </objects>
             <point key="canvasLocation" x="2136" y="608"/>
         </scene>
-        <!--Place Detail View Controller-->
+        <!--詳細-->
         <scene sceneID="kTU-uz-xHX">
             <objects>
                 <viewController id="lyi-Jk-nDC" customClass="PlaceDetailViewController" customModule="OmosanMaps" customModuleProvider="target" sceneMemberID="viewController">
@@ -300,6 +300,13 @@
                             <constraint firstItem="XNk-6s-0eh" firstAttribute="leading" secondItem="4cw-gh-qaS" secondAttribute="leading" id="xje-Yw-SIh"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="詳細" id="Q6a-6O-p8P">
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="kL6-5x-yjc">
+                            <connections>
+                                <action selector="showActions:" destination="lyi-Jk-nDC" id="bMq-Mz-hod"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="descriptionTextView" destination="ZuB-lF-K67" id="KAx-KQ-omE"/>
                         <outlet property="mapView" destination="XNk-6s-0eh" id="kiL-ei-QfY"/>
