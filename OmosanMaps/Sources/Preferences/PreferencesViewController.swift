@@ -9,6 +9,8 @@
 import UIKit
 import SwiftyUserDefaults
 
+let KMLURLDidChangeNotification: String = "KMLURLDidChangeNotification"
+
 class PreferencesViewController: UITableViewController {
 
     @IBOutlet weak var kmlURLTextField: UITextField!
@@ -44,6 +46,7 @@ extension PreferencesViewController: UITextFieldDelegate {
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         
         Defaults[.kmlURL] = textField.text
+        NSNotificationCenter.defaultCenter().postNotificationName(KMLURLDidChangeNotification, object: nil)
         
         textField.resignFirstResponder()
         

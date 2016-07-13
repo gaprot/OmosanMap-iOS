@@ -22,6 +22,8 @@ class MapViewController: UIViewController, UIPopoverPresentationControllerDelega
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(kmlURLDidChange), name: KMLURLDidChangeNotification, object: nil)
+        
         LocationService.shared.start()
     }
 
@@ -66,6 +68,11 @@ class MapViewController: UIViewController, UIPopoverPresentationControllerDelega
 
     func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
         return .None
+    }
+    
+    func kmlURLDidChange(notification: NSNotification) {
+        DocumentDataSource.shared.clear()
+        self.filter = DocumentDataSource.Filter()
     }
 }
 

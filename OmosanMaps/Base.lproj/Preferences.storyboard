@@ -34,6 +34,13 @@
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
                             <tableViewSection headerTitle="Googleマイマップ" id="A3r-5D-eZS">
+                                <string key="footerTitle">GoogleマイマップのURLは以下の手順で取得できます。
+・SafariでGoogleマップを開く
+・メニューから「マイマップ」を選択
+・マップを作成または既存のマップを選択
+・メニューから「KMLにエクスポート」を選択
+・「ダウンロード」を選択 (KMZファイルとして)
+・SafariのアドレスバーにあるURLをコピー</string>
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="Uhl-Ey-fT4">
                                         <rect key="frame" x="0.0" y="113.5" width="375" height="44"/>
