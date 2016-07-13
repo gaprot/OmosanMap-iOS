@@ -22,6 +22,9 @@
 		CBA1E5461C74807500619CFC /* PlaceListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA1E5451C74807500619CFC /* PlaceListViewController.swift */; };
 		CBB679DA1D35C44800F1BC32 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB679D91D35C44800F1BC32 /* UIColor+Extension.swift */; };
 		CBB679DC1D35C74800F1BC32 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB679DB1D35C74800F1BC32 /* UIImage+Extension.swift */; };
+		CBB679DF1D35D64300F1BC32 /* Preferences.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBB679DD1D35D64300F1BC32 /* Preferences.storyboard */; };
+		CBB679E21D35D80900F1BC32 /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB679E11D35D80900F1BC32 /* PreferencesViewController.swift */; };
+		CBB679E51D35DB5300F1BC32 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB679E41D35DB5300F1BC32 /* UserDefaults.swift */; };
 		CBEB5F701C7324E400664664 /* DocumentDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEB5F6F1C7324E400664664 /* DocumentDataSource.swift */; };
 		CBEB5F721C73251200664664 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEB5F711C73251200664664 /* Document.swift */; };
 		CBEB5F741C7332C600664664 /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CBEB5F731C7332C600664664 /* libxml2.tbd */; };
@@ -62,6 +65,9 @@
 		CBA1E5451C74807500619CFC /* PlaceListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlaceListViewController.swift; path = Sources/Place/PlaceListViewController.swift; sourceTree = "<group>"; };
 		CBB679D91D35C44800F1BC32 /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIColor+Extension.swift"; path = "Sources/Extensions/UIColor+Extension.swift"; sourceTree = "<group>"; };
 		CBB679DB1D35C74800F1BC32 /* UIImage+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIImage+Extension.swift"; path = "Sources/Extensions/UIImage+Extension.swift"; sourceTree = "<group>"; };
+		CBB679DE1D35D64300F1BC32 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = OmosanMaps/Base.lproj/Preferences.storyboard; sourceTree = "<group>"; };
+		CBB679E11D35D80900F1BC32 /* PreferencesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PreferencesViewController.swift; path = Sources/Preferences/PreferencesViewController.swift; sourceTree = "<group>"; };
+		CBB679E41D35DB5300F1BC32 /* UserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserDefaults.swift; path = Sources/Misc/UserDefaults.swift; sourceTree = "<group>"; };
 		CBEB5F6A1C72E82C00664664 /* OmosanMaps-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OmosanMaps-Bridging-Header.h"; sourceTree = "<group>"; };
 		CBEB5F6F1C7324E400664664 /* DocumentDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DocumentDataSource.swift; path = Sources/Model/DocumentDataSource.swift; sourceTree = "<group>"; };
 		CBEB5F711C73251200664664 /* Document.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Document.swift; path = Sources/Model/Document.swift; sourceTree = "<group>"; };
@@ -126,11 +132,14 @@
 			isa = PBXGroup;
 			children = (
 				CBA1E5441C74805500619CFC /* Place */,
+				CBB679E01D35D7A500F1BC32 /* Preferences */,
 				CBEB5F6E1C73248500664664 /* Model */,
 				CBFCA5441D1CBBCC00A80C39 /* Services */,
+				CBB679E31D35DB3800F1BC32 /* Misc */,
 				CB5EEC9D1D2E4D33002E7271 /* Extensions */,
 				CB28C03C1BC3DE6E0082F831 /* AppDelegate.swift */,
 				CB28C0401BC3DE6E0082F831 /* Main.storyboard */,
+				CBB679DD1D35D64300F1BC32 /* Preferences.storyboard */,
 				CB28C0431BC3DE6E0082F831 /* Images.xcassets */,
 				CB28C0451BC3DE6E0082F831 /* LaunchScreen.xib */,
 				CB28C03A1BC3DE6E0082F831 /* Supporting Files */,
@@ -185,6 +194,22 @@
 				CB9F12741D2E583600725EAB /* PlacemarkAnnotation.swift */,
 			);
 			name = Place;
+			sourceTree = "<group>";
+		};
+		CBB679E01D35D7A500F1BC32 /* Preferences */ = {
+			isa = PBXGroup;
+			children = (
+				CBB679E11D35D80900F1BC32 /* PreferencesViewController.swift */,
+			);
+			name = Preferences;
+			sourceTree = "<group>";
+		};
+		CBB679E31D35DB3800F1BC32 /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+				CBB679E41D35DB5300F1BC32 /* UserDefaults.swift */,
+			);
+			name = Misc;
 			sourceTree = "<group>";
 		};
 		CBEB5F6E1C73248500664664 /* Model */ = {
@@ -303,6 +328,7 @@
 				CB28C0421BC3DE6E0082F831 /* Main.storyboard in Resources */,
 				CB28C0471BC3DE6E0082F831 /* LaunchScreen.xib in Resources */,
 				CB28C0441BC3DE6E0082F831 /* Images.xcassets in Resources */,
+				CBB679DF1D35D64300F1BC32 /* Preferences.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -370,6 +396,7 @@
 			files = (
 				CB5EEC9F1D2E4D57002E7271 /* JiNode+Extension.swift in Sources */,
 				CB9F12751D2E583600725EAB /* PlacemarkAnnotation.swift in Sources */,
+				CBB679E21D35D80900F1BC32 /* PreferencesViewController.swift in Sources */,
 				CBEB5F721C73251200664664 /* Document.swift in Sources */,
 				CBEB5F761C733AFA00664664 /* Folder.swift in Sources */,
 				CBFD09281C7B2C7B00A2470B /* PlaceDetailViewController.swift in Sources */,
@@ -381,6 +408,7 @@
 				CB5EEC9C1D2E4AF6002E7271 /* Style.swift in Sources */,
 				CBB679DC1D35C74800F1BC32 /* UIImage+Extension.swift in Sources */,
 				CBEB5F781C733B0600664664 /* Placemark.swift in Sources */,
+				CBB679E51D35DB5300F1BC32 /* UserDefaults.swift in Sources */,
 				CB1D56E51CFFFF720065B6B7 /* SearchOptionsController.swift in Sources */,
 				CBEB5F701C7324E400664664 /* DocumentDataSource.swift in Sources */,
 				CB757B2D1CF7F7400073A17C /* MapViewController.swift in Sources */,
@@ -420,6 +448,15 @@
 				CB28C0461BC3DE6E0082F831 /* Base */,
 			);
 			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		CBB679DD1D35D64300F1BC32 /* Preferences.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CBB679DE1D35D64300F1BC32 /* Base */,
+			);
+			name = Preferences.storyboard;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

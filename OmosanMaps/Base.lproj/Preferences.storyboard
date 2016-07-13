@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="p11-RE-cf5">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="Pvh-ev-KtL">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="p11-RE-cf5" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="VZd-D3-c8U">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="72Q-qj-hcc" kind="relationship" relationship="rootViewController" id="Vo0-u3-2o3"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eGy-V6-izm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="507" y="362"/>
+        </scene>
+        <!--設定-->
+        <scene sceneID="CJg-sD-6PH">
+            <objects>
+                <tableViewController id="72Q-qj-hcc" customClass="PreferencesViewController" customModule="OmosanMaps" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="4IW-hx-A1N">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <sections>
+                            <tableViewSection headerTitle="Googleマイマップ" id="A3r-5D-eZS">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="Uhl-Ey-fT4">
+                                        <rect key="frame" x="0.0" y="113.5" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Uhl-Ey-fT4" id="r0c-0s-96Q">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="KMLのURL" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="1Vm-vd-GNH">
+                                                    <rect key="frame" x="8" y="0.0" width="359" height="43.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="72Q-qj-hcc" id="ukH-OM-MAH"/>
+                                                    </connections>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="1Vm-vd-GNH" firstAttribute="centerY" secondItem="r0c-0s-96Q" secondAttribute="centerY" id="0KY-Pi-1TQ"/>
+                                                <constraint firstAttribute="bottom" secondItem="1Vm-vd-GNH" secondAttribute="bottom" id="HVn-80-5hf"/>
+                                                <constraint firstAttribute="trailing" secondItem="1Vm-vd-GNH" secondAttribute="trailing" constant="8" id="OrU-Yh-fXb"/>
+                                                <constraint firstItem="1Vm-vd-GNH" firstAttribute="leading" secondItem="r0c-0s-96Q" secondAttribute="leading" constant="8" id="SYL-w5-rzX"/>
+                                                <constraint firstItem="1Vm-vd-GNH" firstAttribute="top" secondItem="r0c-0s-96Q" secondAttribute="top" id="Z96-eo-3GY"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="72Q-qj-hcc" id="K2Y-pS-tzA"/>
+                            <outlet property="delegate" destination="72Q-qj-hcc" id="zoE-0S-cVn"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="設定" id="5Zi-ak-6P4">
+                        <barButtonItem key="leftBarButtonItem" systemItem="stop" id="gUd-Oh-vjY">
+                            <connections>
+                                <action selector="close:" destination="72Q-qj-hcc" id="hcD-uT-twA"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="kmlURLTextField" destination="1Vm-vd-GNH" id="lBc-iN-FTd"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rk0-LN-1Ox" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1067.5" y="361.5"/>
+        </scene>
+    </scenes>
+</document>

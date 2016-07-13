@@ -72,7 +72,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="veK-Df-Njo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="794.5" y="-339.5"/>
+            <point key="canvasLocation" x="794.5" y="-655.5"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="snp-jl-8mg">
@@ -109,6 +109,11 @@
                                 </segue>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="設定" id="Bjd-QK-Wb1">
+                            <connections>
+                                <segue destination="Khz-C4-2uI" kind="presentation" identifier="Preferences" id="BJ3-pE-Jwv"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
@@ -120,6 +125,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H48-0S-0rK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="794.5" y="432.5"/>
+        </scene>
+        <!--Preferences-->
+        <scene sceneID="yY3-5T-wHQ">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Preferences" id="Khz-C4-2uI" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1dy-BZ-cH1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1183" y="231"/>
         </scene>
         <!--検索-->
         <scene sceneID="ENN-Gj-HaN">
@@ -333,7 +346,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c6W-RB-kMO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="252" y="-334"/>
+            <point key="canvasLocation" x="251.5" y="-650.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="3UT-YZ-oYp">

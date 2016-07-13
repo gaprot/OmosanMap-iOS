@@ -47,26 +47,30 @@ class DocumentDataSource
                 if let error = error {
                     handler(error: error)
                 } else {
-                    if let localPath = localURL?.path {
-                        let kmlDirPath = localPath.stringByReplacingOccurrencesOfString(".kmz", withString: "")
-                        self.basePath = kmlDirPath
-                        
-                        if NSFileManager.defaultManager().fileExistsAtPath(kmlDirPath) {
-                            try! NSFileManager.defaultManager().removeItemAtPath(kmlDirPath)
+                    guard let localPath = localURL?.path else {
+                        fatalError()
+                    }
+                    
+                    let kmlDirPath = localPath.stringByReplacingOccurrencesOfString(".kmz", withString: "")
+                    self.basePath = kmlDirPath
+                    
+                    if NSFileManager.defaultManager().fileExistsAtPath(kmlDirPath) {
+                        try! NSFileManager.defaultManager().removeItemAtPath(kmlDirPath)
+                    }
+                    
+                    if SSZipArchive.unzipFileAtPath(localPath, toDestination: kmlDirPath) {
+                        let kmlPath = kmlDirPath.stringByAppendingString("/doc.kml")
+                        self.parseKML(kmlPath)
+                        handler(error: nil)
+                        if let kml = try? String(contentsOfFile: kmlPath, encoding: NSUTF8StringEncoding) {
+                            print(kml)
                         }
-                        
-                        if SSZipArchive.unzipFileAtPath(localPath, toDestination: kmlDirPath) {
-                            let kmlPath = kmlDirPath.stringByAppendingString("/doc.kml")
-                            self.parseKML(kmlPath)
-                            handler(error: nil)
-                            if let kml = try? String(contentsOfFile: kmlPath, encoding: NSUTF8StringEncoding) {
-                                print(kml)
-                            }
-                        }
+                    } else {
+                        // FIXME: URLが間違っているとここに来ることがある
                     }
                 }
         }
-        
+    
     }
     
     func clear() {

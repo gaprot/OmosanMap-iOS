@@ -9,6 +9,7 @@
 import UIKit
 import MapKit
 import AlamofireImage
+import SwiftyUserDefaults
 
 class MapViewController: UIViewController, UIPopoverPresentationControllerDelegate {
 
@@ -132,10 +133,19 @@ private extension MapViewController {
             return
         }
         
-        let sourceURLString = "https://www.google.com/maps/d/u/0/kml?mid=zmkzjAlquG4s.k9j-gW9GbmCQ"
+        //let sourceURLString = "https://www.google.com/maps/d/u/0/kml?mid=zmkzjAlquG4s.k9j-gW9GbmCQ"
+        guard let sourceURLString = Defaults[.kmlURL] else {
+            self.alertInvalidURL()
+            return
+        }
+        
         DocumentDataSource.shared.fetch(sourceURLString) { [weak self] (error) in
-            if let error = error {
-                print(error)
+            if let error = error as? NSError {
+                if error.domain == NSURLErrorDomain {
+                    self?.alertInvalidURL()
+                } else {
+                    print(error)
+                }
             } else {
                 self?.updateTitle()
                 self?.updateMap()
@@ -167,5 +177,20 @@ private extension MapViewController {
 //        self.mapView.addAnnotation(annotation)
         
         self.mapView.showAnnotations(self.mapView.annotations, animated: true)
+    }
+    
+    private func alertInvalidURL() {
+        let alert = UIAlertController(
+            title: "読み込みエラー",
+            message: "地図データを読み込めませんでした。正しいURLを設定してください。",
+            preferredStyle: .Alert
+        )
+        
+        alert.addAction(UIAlertAction(title: "設定", style: .Default) { (action) in
+            self.performSegueWithIdentifier("Preferences", sender: self)
+            }
+        )
+        
+        self.presentViewController(alert, animated: true, completion: nil)
     }
 }

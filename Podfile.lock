@@ -8,17 +8,20 @@ PODS:
     - Ji/Ji-libxml
   - Ji/Ji-libxml (1.2.0)
   - SSZipArchive (1.1)
+  - SwiftyUserDefaults (2.2.0)
 
 DEPENDENCIES:
   - Alamofire
   - AlamofireImage
   - Ji
   - SSZipArchive
+  - SwiftyUserDefaults (~> 2.2.0)
 
 SPEC CHECKSUMS:
   Alamofire: 4da478599fccddff361205c8929333d7fe18dceb
   AlamofireImage: e52336282757bbe1644f075d6cb85f19c891f939
   Ji: ddebb22f9ac445db6e884b66f78ea74fb135fdb7
   SSZipArchive: de3d215ab73f87db627f81f2ce24f1731e3886c3
+  SwiftyUserDefaults: e7c8197a9d4068702e7f2406a968cae413b8de27
 
 COCOAPODS: 0.39.0
