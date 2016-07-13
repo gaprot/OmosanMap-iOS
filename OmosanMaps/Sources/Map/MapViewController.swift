@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import AlamofireImage
 
 class MapViewController: UIViewController, UIPopoverPresentationControllerDelegate {
 
@@ -15,6 +16,7 @@ class MapViewController: UIViewController, UIPopoverPresentationControllerDelega
     @IBOutlet weak var searchButton: UIBarButtonItem!
     
     private var filter: DocumentDataSource.Filter = DocumentDataSource.Filter()
+    private let imageDownloader = ImageDownloader()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -80,13 +82,33 @@ extension MapViewController: MKMapViewDelegate {
         if annotation === mapView.userLocation {
             return nil
         }
+        guard let placemarkAnnotation = annotation as? PlacemarkAnnotation else {
+            fatalError()
+        }
+        let styleID = placemarkAnnotation.styleID
         
         let identifier = "Pin"
         let annotationView =
             mapView.dequeueReusableAnnotationViewWithIdentifier(identifier)
                 ?? MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
         annotationView.annotation = annotation
-        annotationView.image = UIImage(named: "pin")
+
+        let defaultIconImage = UIImage(named: "pin")
+        if let iconURL = DocumentDataSource.shared.iconURL(for: styleID) {
+            self.imageDownloader.downloadImage(URLRequest: NSURLRequest(URL: iconURL)) { (response) in
+                switch response.result {
+                case .Success(var image):
+                    if let color = DocumentDataSource.shared.iconColor(for: styleID) {
+                        image = image.filteringColor(color)
+                    }
+                    annotationView.image = image
+                case .Failure(_):
+                    annotationView.image = defaultIconImage
+                }
+            }
+        } else {
+            annotationView.image = defaultIconImage
+        }
         
         // アノテーションをタップしたら「吹き出し」を表示
         // annotationのtitleとsubtitle、rightCalloutAccessoryViewが表示される
@@ -136,10 +158,7 @@ private extension MapViewController {
         
         let placemarks = DocumentDataSource.shared.placemarksForFilter(self.filter)
         for placemark in placemarks {
-            let annotation = MKPointAnnotation()
-            annotation.title = placemark.name
-            annotation.subtitle = placemark.sanitizedDescriptionText
-            annotation.coordinate = placemark.coordinate
+            let annotation = PlacemarkAnnotation(placemark: placemark)
             self.mapView.addAnnotation(annotation)
         }
 //        let annotation = MKPointAnnotation()

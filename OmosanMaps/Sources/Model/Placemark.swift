@@ -19,6 +19,7 @@ struct Placemark
     let descriptionText: String
     let coordinate: CLLocationCoordinate2D
     let imageURLs: [NSURL]
+    let styleID: String
 }
 
 extension Placemark {
@@ -41,6 +42,7 @@ extension Placemark
         var descriptionText = ""
         var coordinate = CLLocationCoordinate2D()
         var imageURLs = [NSURL]()
+        var styleID = ""
         for childNode in node.children {
             guard let childNodeName = childNode.name?.lowercaseString else {
                 continue
@@ -55,6 +57,10 @@ extension Placemark
                 coordinate = CLLocationCoordinate2D.fromJiNode(childNode)
             case "extendeddata":
                 imageURLs = self.extractImageURLs(childNode)
+            case "styleurl":
+                if let content = childNode.content {
+                    styleID = content.substringFromIndex(content.startIndex.successor())
+                }
             default:
                 break
             }
@@ -63,7 +69,8 @@ extension Placemark
             name: name,
             descriptionText: descriptionText,
             coordinate: coordinate,
-            imageURLs: imageURLs
+            imageURLs: imageURLs,
+            styleID: styleID
         )
     }
     

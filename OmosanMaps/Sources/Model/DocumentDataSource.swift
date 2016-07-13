@@ -15,8 +15,9 @@ class DocumentDataSource
 {
     static let shared: DocumentDataSource = DocumentDataSource()
     
-    private (set) var document: Document?
-
+    private var basePath: String?
+    private(set) var document: Document?
+    
     var hasDocument: Bool {
         return self.document != nil
     }
@@ -48,6 +49,7 @@ class DocumentDataSource
                 } else {
                     if let localPath = localURL?.path {
                         let kmlDirPath = localPath.stringByReplacingOccurrencesOfString(".kmz", withString: "")
+                        self.basePath = kmlDirPath
                         
                         if NSFileManager.defaultManager().fileExistsAtPath(kmlDirPath) {
                             try! NSFileManager.defaultManager().removeItemAtPath(kmlDirPath)
@@ -93,6 +95,36 @@ class DocumentDataSource
                 break
             }
         }
+    }
+}
+
+extension DocumentDataSource {
+    func iconColor(for styleID: String) -> UIColor? {
+        guard let style = self.document?.styles[styleID] else {
+            return nil
+        }
+
+        return style.color
+    }
+    
+    func iconURL(for styleID: String) -> NSURL? {
+        guard let style = self.document?.styles[styleID] else {
+            return nil
+        }
+
+        if
+            let urlComponents = NSURLComponents(string: style.iconRef)
+        where
+            urlComponents.scheme == "http" || urlComponents.scheme == "https"
+        {
+            return NSURL(string: style.iconRef)!
+        }
+        
+        guard let basePath = self.basePath else {
+            return nil
+        }
+        let baseURL = NSURL(fileURLWithPath: basePath)
+        return baseURL.URLByAppendingPathComponent(style.iconRef)
     }
 }
 

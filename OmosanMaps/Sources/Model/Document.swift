@@ -14,9 +14,11 @@ import Ji
  */
 struct Document
 {
+    
     let name: String
     let description: String
     let folders: [Folder]
+    let styles: [String: Style]
 }
 
 extension Document
@@ -32,6 +34,7 @@ extension Document
         var name = ""
         var description = ""
         var folders: [Folder] = []
+        var styles: [String: Style] = [:]
         for childNode in node.children {
             guard let childNodeName = childNode.name?.lowercaseString else {
                 continue
@@ -44,12 +47,20 @@ extension Document
                 description = childNode.content ?? ""
             case "folder":
                 folders.append(Folder.fromJiNode(childNode))
+            case "style":
+                let style = Style.fromJiNode(childNode)
+                styles[style.id] = style
             default:
                 break
             }
         }
         
-        return Document(name: name, description: description, folders: folders)
+        return Document(
+            name: name,
+            description: description,
+            folders: folders,
+            styles: styles
+        )
     }
 }
 
