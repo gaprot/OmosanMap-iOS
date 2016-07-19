@@ -13,6 +13,11 @@ import Ji
 
 class DocumentDataSource
 {
+    enum Error: ErrorType {
+        case DownloadFailed
+        case KMLParseFailed
+    }
+    
     static let shared: DocumentDataSource = DocumentDataSource()
     
     private var basePath: String?
@@ -35,17 +40,31 @@ class DocumentDataSource
                 .GET,
                 URLString,
                 destination: { (temporaryURL, response) in
-                    let pathComponent = response.suggestedFilename
-                    
-                    localURL = directoryURL.URLByAppendingPathComponent(pathComponent!)
-
-                    if NSFileManager.defaultManager().fileExistsAtPath(localURL!.path!) {
-                        try! NSFileManager.defaultManager().removeItemAtURL(localURL!)
+                    // ファイルのダウンロード先を指定
+                    guard let pathComponent = response.suggestedFilename else {
+                        fatalError()
                     }
-                    return localURL!
+                    let destinationURL = directoryURL.URLByAppendingPathComponent(pathComponent)
+
+                    // 同名のファイルが残っている場合は削除しておく
+                    if
+                        let destinationPath = destinationURL.path
+                    where
+                        NSFileManager.defaultManager().fileExistsAtPath(destinationPath)
+                    {
+                        try! NSFileManager.defaultManager().removeItemAtPath(destinationPath)
+                    }
+                    
+                    localURL = destinationURL
+                    return destinationURL
             }).response{ (request, response, data, error) in
+                var result: ErrorType?
+                defer {
+                    handler(error: result)
+                }
+                
                 if let error = error {
-                    handler(error: error)
+                    result = error
                 } else {
                     guard let localPath = localURL?.path else {
                         fatalError()
@@ -57,16 +76,21 @@ class DocumentDataSource
                     if NSFileManager.defaultManager().fileExistsAtPath(kmlDirPath) {
                         try! NSFileManager.defaultManager().removeItemAtPath(kmlDirPath)
                     }
-                    
+
+                    // KMZファイルを展開
                     if SSZipArchive.unzipFileAtPath(localPath, toDestination: kmlDirPath) {
                         let kmlPath = kmlDirPath.stringByAppendingString("/doc.kml")
-                        self.parseKML(kmlPath)
-                        handler(error: nil)
+                        do {
+                            try self.parseKML(kmlPath)
+                        } catch let error {
+                            result = error
+                        }
                         if let kml = try? String(contentsOfFile: kmlPath, encoding: NSUTF8StringEncoding) {
                             print(kml)
                         }
                     } else {
-                        // FIXME: URLが間違っているとここに来ることがある
+                        // URLが間違っているとここに来ることがある
+                        result = Error.DownloadFailed
                     }
                 }
         }
@@ -79,12 +103,12 @@ class DocumentDataSource
     
 // MARK: - parse KML
     
-    private func parseKML(path: String) {
+    private func parseKML(path: String) throws {
         guard
             let doc = Ji(xmlURL: NSURL(fileURLWithPath: path)),
             let kmlNode = doc.rootNode
         else {
-            return		// TODO: error
+            throw Error.KMLParseFailed
         }
 
         for childNode in kmlNode.children {
