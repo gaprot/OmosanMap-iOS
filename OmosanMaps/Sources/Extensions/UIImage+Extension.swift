@@ -29,6 +29,7 @@ extension UIImage {
         CGContextScaleCTM(context, 1.0, -1.0)
 
         CGContextSetBlendMode(context, .Normal)
+        //self.drawInRect(rect)
         CGContextDrawImage(context, rect, self.CGImage)
         
         CGContextClipToMask(context, rect, self.CGImage)
