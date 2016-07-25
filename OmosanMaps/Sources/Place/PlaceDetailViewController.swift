@@ -110,7 +110,7 @@ private extension PlaceDetailViewController {
     private func openInMap() {
         guard
             let placemark = self.placemark,
-            let url = NSURL(string: "https://maps.apple.com/?ll=\(placemark.coordinate.latitude),\(placemark.coordinate.longitude)")
+            let url = NSURL(string: "https://maps.apple.com/?ll=\(placemark.coordinate.latitude),\(placemark.coordinate.longitude)&q=\(placemark.name.encodingToURIRepresentation())")
         else {
             return
         }
