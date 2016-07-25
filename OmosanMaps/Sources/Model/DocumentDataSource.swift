@@ -2,8 +2,8 @@
 //  DocumentDataSource.swift
 //  OmosanMaps
 //
-//  Created by yuichi.kobayashi on 2016/02/16.
-//  Copyright © 2016年 *. All rights reserved.
+//  Created by Gaprot Dev Team on 2016/02/16.
+//  Copyright © 2016年 Up-frontier, Inc. All rights reserved.
 //
 
 import Foundation

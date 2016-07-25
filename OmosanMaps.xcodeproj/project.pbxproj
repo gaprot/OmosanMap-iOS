@@ -290,7 +290,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0710;
 				LastUpgradeCheck = 0640;
-				ORGANIZATIONNAME = "*";
+				ORGANIZATIONNAME = "Up-frontier, Inc.";
 				TargetAttributes = {
 					CB28C0361BC3DE6E0082F831 = {
 						CreatedOnToolsVersion = 6.4;
@@ -551,6 +551,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = OmosanMaps/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = jp.gaprot.omosanmaps;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "OmosanMaps/OmosanMaps-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -565,6 +566,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = OmosanMaps/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = jp.gaprot.omosanmaps;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "OmosanMaps/OmosanMaps-Bridging-Header.h";
 			};

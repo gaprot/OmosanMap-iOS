@@ -2,8 +2,8 @@
 //  OmosanMapsTests.swift
 //  OmosanMapsTests
 //
-//  Created by yuichi.kobayashi on 2015/10/06.
-//  Copyright (c) 2015年 *. All rights reserved.
+//  Created by Gaprot Dev Team on 2015/10/06.
+//  Copyright (c) 2015年 Up-frontier, Inc. All rights reserved.
 //
 
 import UIKit
