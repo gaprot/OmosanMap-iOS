@@ -294,11 +294,9 @@
 				TargetAttributes = {
 					CB28C0361BC3DE6E0082F831 = {
 						CreatedOnToolsVersion = 6.4;
-						DevelopmentTeam = R6YNJ9HW8W;
 					};
 					CB28C04B1BC3DE6E0082F831 = {
 						CreatedOnToolsVersion = 6.4;
-						DevelopmentTeam = R6YNJ9HW8W;
 						TestTargetID = CB28C0361BC3DE6E0082F831;
 					};
 				};
@@ -560,7 +558,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = R6YNJ9HW8W;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = OmosanMaps/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jp.gaprot.omosanmaps;
@@ -578,7 +576,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = R6YNJ9HW8W;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = OmosanMaps/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jp.gaprot.omosanmaps;
@@ -592,7 +590,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEVELOPMENT_TEAM = R6YNJ9HW8W;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -613,7 +611,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEVELOPMENT_TEAM = R6YNJ9HW8W;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
