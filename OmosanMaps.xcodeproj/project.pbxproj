@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		86A2B90E5DD0EF6D7E490ED0 /* Pods_OmosanMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2037503C28E63398D6565A5D /* Pods_OmosanMaps.framework */; };
+		BF1B2F3270D25175682A3697 /* Pods_OmosanMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD8A8B416D519E812ADC43D8 /* Pods_OmosanMaps.framework */; };
 		CB1D56E51CFFFF720065B6B7 /* SearchOptionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB1D56E41CFFFF720065B6B7 /* SearchOptionsController.swift */; };
 		CB1D56E71D0002160065B6B7 /* SearchOptionsGenreListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB1D56E61D0002160065B6B7 /* SearchOptionsGenreListViewController.swift */; };
 		CB28C03D1BC3DE6E0082F831 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB28C03C1BC3DE6E0082F831 /* AppDelegate.swift */; };
@@ -45,8 +45,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2037503C28E63398D6565A5D /* Pods_OmosanMaps.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OmosanMaps.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5C48CF2B9C55E5445B685AC0 /* Pods-OmosanMaps.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OmosanMaps.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OmosanMaps/Pods-OmosanMaps.debug.xcconfig"; sourceTree = "<group>"; };
+		93602CDAC7341730ED928322 /* Pods-OmosanMaps.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OmosanMaps.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OmosanMaps/Pods-OmosanMaps.debug.xcconfig"; sourceTree = "<group>"; };
+		BD8A8B416D519E812ADC43D8 /* Pods_OmosanMaps.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OmosanMaps.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB1D56E41CFFFF720065B6B7 /* SearchOptionsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchOptionsController.swift; path = Sources/Map/SearchOptionsController.swift; sourceTree = "<group>"; };
 		CB1D56E61D0002160065B6B7 /* SearchOptionsGenreListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchOptionsGenreListViewController.swift; path = Sources/Map/SearchOptionsGenreListViewController.swift; sourceTree = "<group>"; };
 		CB28C0371BC3DE6E0082F831 /* OmosanMaps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OmosanMaps.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -76,7 +76,7 @@
 		CBEB5F771C733B0600664664 /* Placemark.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Placemark.swift; path = Sources/Model/Placemark.swift; sourceTree = "<group>"; };
 		CBFCA5451D1CBBEF00A80C39 /* LocationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationService.swift; path = Sources/Services/LocationService.swift; sourceTree = "<group>"; };
 		CBFD09271C7B2C7B00A2470B /* PlaceDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlaceDetailViewController.swift; path = Sources/Place/PlaceDetailViewController.swift; sourceTree = "<group>"; };
-		D628FE9A311AE4DA116053B4 /* Pods-OmosanMaps.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OmosanMaps.release.xcconfig"; path = "Pods/Target Support Files/Pods-OmosanMaps/Pods-OmosanMaps.release.xcconfig"; sourceTree = "<group>"; };
+		DC52D617F86CEC7D3B9E7096 /* Pods-OmosanMaps.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OmosanMaps.release.xcconfig"; path = "Pods/Target Support Files/Pods-OmosanMaps/Pods-OmosanMaps.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,7 +85,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CBEB5F741C7332C600664664 /* libxml2.tbd in Frameworks */,
-				86A2B90E5DD0EF6D7E490ED0 /* Pods_OmosanMaps.framework in Frameworks */,
+				BF1B2F3270D25175682A3697 /* Pods_OmosanMaps.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,11 +99,11 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		63C3B45B8BD68AD5AD8A0AB1 /* Pods */ = {
+		C39B7CBD165F6CA73C66CAEA /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				5C48CF2B9C55E5445B685AC0 /* Pods-OmosanMaps.debug.xcconfig */,
-				D628FE9A311AE4DA116053B4 /* Pods-OmosanMaps.release.xcconfig */,
+				93602CDAC7341730ED928322 /* Pods-OmosanMaps.debug.xcconfig */,
+				DC52D617F86CEC7D3B9E7096 /* Pods-OmosanMaps.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -114,8 +114,8 @@
 				CB28C0391BC3DE6E0082F831 /* OmosanMaps */,
 				CB28C04F1BC3DE6E0082F831 /* OmosanMapsTests */,
 				CB28C0381BC3DE6E0082F831 /* Products */,
-				63C3B45B8BD68AD5AD8A0AB1 /* Pods */,
 				D0974A6E77E5E1B0F449FCA8 /* Frameworks */,
+				C39B7CBD165F6CA73C66CAEA /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -236,7 +236,7 @@
 			isa = PBXGroup;
 			children = (
 				CBEB5F731C7332C600664664 /* libxml2.tbd */,
-				2037503C28E63398D6565A5D /* Pods_OmosanMaps.framework */,
+				BD8A8B416D519E812ADC43D8 /* Pods_OmosanMaps.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -248,12 +248,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CB28C0561BC3DE6E0082F831 /* Build configuration list for PBXNativeTarget "OmosanMaps" */;
 			buildPhases = (
-				50D23FCBAC18193F2B344BC9 /* Check Pods Manifest.lock */,
+				9A32674FFE79496FC21997E4 /* [CP] Check Pods Manifest.lock */,
 				CB28C0331BC3DE6E0082F831 /* Sources */,
 				CB28C0341BC3DE6E0082F831 /* Frameworks */,
 				CB28C0351BC3DE6E0082F831 /* Resources */,
-				35A274B78DEC8978D12FE240 /* Embed Pods Frameworks */,
-				94D6EE4F2F019AC4B744925F /* Copy Pods Resources */,
+				BBDA648628214E2A4548FCFE /* [CP] Embed Pods Frameworks */,
+				CF38D015F93D1818610101FC /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -289,14 +289,16 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0710;
-				LastUpgradeCheck = 0640;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Up-frontier, Inc.";
 				TargetAttributes = {
 					CB28C0361BC3DE6E0082F831 = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = R6YNJ9HW8W;
 					};
 					CB28C04B1BC3DE6E0082F831 = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = R6YNJ9HW8W;
 						TestTargetID = CB28C0361BC3DE6E0082F831;
 					};
 				};
@@ -342,29 +344,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		35A274B78DEC8978D12FE240 /* Embed Pods Frameworks */ = {
+		9A32674FFE79496FC21997E4 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OmosanMaps/Pods-OmosanMaps-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		50D23FCBAC18193F2B344BC9 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -372,14 +359,29 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		94D6EE4F2F019AC4B744925F /* Copy Pods Resources */ = {
+		BBDA648628214E2A4548FCFE /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OmosanMaps/Pods-OmosanMaps-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CF38D015F93D1818610101FC /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -475,14 +477,17 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -503,6 +508,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
 		};
@@ -519,8 +525,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -539,36 +547,44 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 2.3;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
 		CB28C0571BC3DE6E0082F831 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5C48CF2B9C55E5445B685AC0 /* Pods-OmosanMaps.debug.xcconfig */;
+			baseConfigurationReference = 93602CDAC7341730ED928322 /* Pods-OmosanMaps.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = R6YNJ9HW8W;
 				INFOPLIST_FILE = OmosanMaps/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jp.gaprot.omosanmaps;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "OmosanMaps/OmosanMaps-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
 		};
 		CB28C0581BC3DE6E0082F831 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D628FE9A311AE4DA116053B4 /* Pods-OmosanMaps.release.xcconfig */;
+			baseConfigurationReference = DC52D617F86CEC7D3B9E7096 /* Pods-OmosanMaps.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = R6YNJ9HW8W;
 				INFOPLIST_FILE = OmosanMaps/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jp.gaprot.omosanmaps;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "OmosanMaps/OmosanMaps-Bridging-Header.h";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Release;
 		};
@@ -576,6 +592,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = R6YNJ9HW8W;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -586,6 +603,7 @@
 				);
 				INFOPLIST_FILE = OmosanMapsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "-.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OmosanMaps.app/OmosanMaps";
 			};
@@ -595,12 +613,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = R6YNJ9HW8W;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = OmosanMapsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "-.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OmosanMaps.app/OmosanMaps";
 			};

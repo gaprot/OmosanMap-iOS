@@ -21,7 +21,12 @@ extension UIImage {
         defer {
             UIGraphicsEndImageContext()
         }
-        let context = UIGraphicsGetCurrentContext()
+        guard
+            let context = UIGraphicsGetCurrentContext(),
+            let cgImage = self.CGImage
+        else {
+            fatalError()
+        }
         let rect = CGRect(origin: CGPointZero, size: self.size)
 
         // 上下反転
@@ -30,9 +35,9 @@ extension UIImage {
 
         CGContextSetBlendMode(context, .Normal)
         //self.drawInRect(rect)
-        CGContextDrawImage(context, rect, self.CGImage)
+        CGContextDrawImage(context, rect, cgImage)
         
-        CGContextClipToMask(context, rect, self.CGImage)
+        CGContextClipToMask(context, rect, cgImage)
         CGContextSetBlendMode(context, .Multiply)
         color.setFill()
         CGContextFillRect(context, rect)

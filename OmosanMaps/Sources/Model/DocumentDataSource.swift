@@ -41,10 +41,12 @@ class DocumentDataSource
                 URLString,
                 destination: { (temporaryURL, response) in
                     // ファイルのダウンロード先を指定
-                    guard let pathComponent = response.suggestedFilename else {
+                    guard
+                        let pathComponent = response.suggestedFilename,
+                        let destinationURL = directoryURL.URLByAppendingPathComponent(pathComponent)
+                    else {
                         fatalError()
                     }
-                    let destinationURL = directoryURL.URLByAppendingPathComponent(pathComponent)
 
                     // 同名のファイルが残っている場合は削除しておく
                     if
