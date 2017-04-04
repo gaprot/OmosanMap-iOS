@@ -26,27 +26,16 @@ class PreferencesViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func close(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func close(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
 extension PreferencesViewController: UITextFieldDelegate {
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
         Defaults[.kmlURL] = textField.text
-        NSNotificationCenter.defaultCenter().postNotificationName(KMLURLDidChangeNotification, object: nil)
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: KMLURLDidChangeNotification), object: nil)
         
         textField.resignFirstResponder()
         

@@ -18,13 +18,13 @@ struct Placemark
     let name: String
     let descriptionText: String
     let coordinate: CLLocationCoordinate2D
-    let imageURLs: [NSURL]
+    let imageURLs: [URL]
     let styleID: String
 }
 
 extension Placemark {
     var sanitizedDescriptionText: String {
-        return self.descriptionText.stringByReplacingOccurrencesOfString("<[^>]+>", withString: "", options: .RegularExpressionSearch, range: nil)
+        return self.descriptionText.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil)
     }
 }
 
@@ -41,10 +41,10 @@ extension Placemark
         var name = ""
         var descriptionText = ""
         var coordinate = CLLocationCoordinate2D()
-        var imageURLs = [NSURL]()
+        var imageURLs = [URL]()
         var styleID = ""
         for childNode in node.children {
-            guard let childNodeName = childNode.name?.lowercaseString else {
+            guard let childNodeName = childNode.name?.lowercased() else {
                 continue
             }
             
@@ -54,12 +54,12 @@ extension Placemark
             case "description":
                 descriptionText = childNode.content ?? ""
             case "point":
-                coordinate = CLLocationCoordinate2D.fromJiNode(childNode)
+                coordinate = CLLocationCoordinate2D.fromJiNode(node: childNode)
             case "extendeddata":
-                imageURLs = self.extractImageURLs(childNode)
+                imageURLs = self.extractImageURLs(extendedDataNode: childNode)
             case "styleurl":
                 if let content = childNode.content {
-                    styleID = content.substringFromIndex(content.startIndex.successor())
+                    styleID = content.substring(from: content.index(after: content.startIndex))
                 }
             default:
                 break
@@ -81,22 +81,22 @@ extension Placemark
      
      - returns: 画像 URL の配列を返す。
      */
-    static private func extractImageURLs(extendedDataNode: JiNode) -> [NSURL] {
+    static private func extractImageURLs(extendedDataNode: JiNode) -> [URL] {
         for childNode in extendedDataNode.children {
-            guard let childNodeName = childNode.name?.lowercaseString else {
+            guard let childNodeName = childNode.name?.lowercased() else {
                 continue
             }
 
-            if let valueNode = childNode.firstChildWithName("value")
-            where childNodeName == "data" && childNode["name"] == "gx_media_links" {
+            if let valueNode = childNode.firstChildWithName("value"), childNodeName == "data" && childNode["name"] == "gx_media_links" {
                 let joinedImageURLString = valueNode.content ?? ""
-                var imageURLs = [NSURL]()
-                for imageURLString in joinedImageURLString.componentsSeparatedByString(" ") {
-                    if let imageURL = NSURL(string: imageURLString) {
+                var imageURLs = [URL]()
+
+                for imageURLString in joinedImageURLString.components(separatedBy: " ") {
+                    if let imageURL = URL(string: imageURLString) {
                         imageURLs.append(imageURL)
                     }
                 }
-                
+
                 return imageURLs
             }
         }
@@ -117,16 +117,17 @@ extension CLLocationCoordinate2D
     static func fromJiNode(node: JiNode) -> CLLocationCoordinate2D {
         var coordinate = CLLocationCoordinate2D()
         for childNode in node.children {
-            guard let childNodeName = childNode.name?.lowercaseString else {
+            guard let childNodeName = childNode.name?.lowercased() else {
                 continue
             }
             
             switch (childNodeName) {
             case "coordinates":
-                guard let coordinates = childNode.content else {
+                guard let coordinates: String = childNode.content else {
                     break
                 }
-                let coordinateValues = coordinates.componentsSeparatedByString(",")
+                let trimCoodinates = coordinates.trimmingCharacters(in: .whitespacesAndNewlines)
+                let coordinateValues = trimCoodinates.components(separatedBy: ",")
                 
                 if
                     let longitude = Double(coordinateValues[0]),

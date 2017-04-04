@@ -15,10 +15,10 @@ extension UIColor {
      - parameter kmlHexCode: KMLの16進カラーコード(ABGR)
      */
     convenience init?(kmlHexCode: String) {
-        let scanner = NSScanner(string: kmlHexCode)
+        let scanner = Scanner(string: kmlHexCode)
         
         var value: UInt32 = 0
-        if (!scanner.scanHexInt(&value)) {
+        if (!scanner.scanHexInt32(&value)) {
             return nil
         }
 

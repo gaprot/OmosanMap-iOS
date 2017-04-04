@@ -24,7 +24,7 @@ class PlaceListViewController: UIViewController, UITableViewDataSource, UITableV
         // Do any additional setup after loading the view.
     }
 
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         // TODO: once
@@ -39,7 +39,7 @@ class PlaceListViewController: UIViewController, UITableViewDataSource, UITableV
 
 // MARK: - Navigation
 
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let identifier = segue.identifier else {
             return
         }
@@ -49,9 +49,9 @@ class PlaceListViewController: UIViewController, UITableViewDataSource, UITableV
             // 詳細画面へ
             guard
                 let cell = sender as? UITableViewCell,
-                let indexPath = self.tableView.indexPathForCell(cell),
-                let placemark = self.placemarkAtIndexPath(indexPath),
-                let placeDetailVC = segue.destinationViewController as? PlaceDetailViewController
+                let indexPath = self.tableView.indexPath(for: cell),
+                let placemark = self.placemarkAtIndexPath(indexPath: indexPath),
+                let placeDetailVC = segue.destination as? PlaceDetailViewController
             else {
                 return			// TODO
             }
@@ -68,11 +68,11 @@ class PlaceListViewController: UIViewController, UITableViewDataSource, UITableV
         return self.document?.folders.count ?? 0
     }
     
-    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return self.document?.folders[section].name
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let folder = self.document?.folders[section] else {
             return 0
         }
@@ -80,18 +80,18 @@ class PlaceListViewController: UIViewController, UITableViewDataSource, UITableV
         return folder.placemarks.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        guard let placemark = self.placemarkAtIndexPath(indexPath) else {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let placemark = self.placemarkAtIndexPath(indexPath: indexPath) else {
             abort()
         }
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
 
         cell.textLabel?.text = placemark.name
         cell.detailTextLabel?.text = placemark.descriptionText
         if let imageURL = placemark.imageURLs.first {
             let placeholderImage = UIImage(named: "placeholder")
-            cell.imageView?.af_setImageWithURL(imageURL, placeholderImage: placeholderImage)
+            cell.imageView?.af_setImage(withURL: imageURL, placeholderImage: placeholderImage)
         } else {
             cell.imageView?.image = nil
         }
@@ -103,7 +103,7 @@ class PlaceListViewController: UIViewController, UITableViewDataSource, UITableV
 
     private func fetchData() {
         let sourceURLString = "https://www.google.com/maps/d/u/0/kml?mid=zmkzjAlquG4s.k9j-gW9GbmCQ"
-        self.dataSource.fetch(sourceURLString) { (error) -> Void in
+        self.dataSource.fetch(URLString: sourceURLString) { (error) -> Void in
             if let error = error {
                 print(error)
             } else {
@@ -116,8 +116,8 @@ class PlaceListViewController: UIViewController, UITableViewDataSource, UITableV
         return self.document?.folders[section]
     }
     
-    private func placemarkAtIndexPath(indexPath: NSIndexPath) -> Placemark? {
-        guard let folder = self.folderAtSection(indexPath.section) else {
+    private func placemarkAtIndexPath(indexPath: IndexPath) -> Placemark? {
+        guard let folder = self.folderAtSection(section: indexPath.section) else {
             return nil
         }
         

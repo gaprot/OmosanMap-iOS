@@ -23,24 +23,24 @@ extension UIImage {
         }
         guard
             let context = UIGraphicsGetCurrentContext(),
-            let cgImage = self.CGImage
+            let cgImage = self.cgImage
         else {
             fatalError()
         }
-        let rect = CGRect(origin: CGPointZero, size: self.size)
+        let rect = CGRect(origin: .zero, size: self.size)
 
         // 上下反転
-        CGContextTranslateCTM(context, 0, self.size.height)
-        CGContextScaleCTM(context, 1.0, -1.0)
+        context.translateBy(x: 0, y: self.size.height)
+        context.scaleBy(x: 1.0, y: -1.0)
 
-        CGContextSetBlendMode(context, .Normal)
+        context.setBlendMode(.normal)
         //self.drawInRect(rect)
-        CGContextDrawImage(context, rect, cgImage)
-        
-        CGContextClipToMask(context, rect, cgImage)
-        CGContextSetBlendMode(context, .Multiply)
+        context.draw(cgImage, in: rect)
+
+        context.clip(to: rect, mask: cgImage)
+        context.setBlendMode(.multiply)
         color.setFill()
-        CGContextFillRect(context, rect)
+        context.fill(rect)
 
         guard let filteredImage = UIGraphicsGetImageFromCurrentImageContext() else {
             fatalError()

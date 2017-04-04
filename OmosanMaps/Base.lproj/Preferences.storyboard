@@ -53,7 +53,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="KMLのURL" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="1Vm-vd-GNH">
-                                                    <rect key="frame" x="8" y="0.0" width="359" height="44"/>
+                                                    <rect key="frame" x="8" y="0.0" width="359" height="43"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                     <connections>
@@ -81,7 +81,7 @@
                     <navigationItem key="navigationItem" title="設定" id="5Zi-ak-6P4">
                         <barButtonItem key="leftBarButtonItem" systemItem="stop" id="gUd-Oh-vjY">
                             <connections>
-                                <action selector="close:" destination="72Q-qj-hcc" id="hcD-uT-twA"/>
+                                <action selector="close:" destination="72Q-qj-hcc" id="x70-EF-Ntn"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

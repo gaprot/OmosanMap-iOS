@@ -37,7 +37,7 @@ extension Style
         var color: UIColor?
         var iconRef = ""
         for childNode in iconStyleNode.children {
-            guard let childNodeName = childNode.name?.lowercaseString else {
+            guard let childNodeName = childNode.name?.lowercased() else {
                 continue
             }
             
