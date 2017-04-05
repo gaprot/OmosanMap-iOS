@@ -108,7 +108,7 @@
                     <navigationItem key="navigationItem" id="mMx-mq-R2e">
                         <barButtonItem key="leftBarButtonItem" enabled="NO" systemItem="search" id="YsS-oT-Stb">
                             <connections>
-                                <segue destination="ajn-gz-a5u" kind="popoverPresentation" identifier="Search" popoverAnchorBarButtonItem="YsS-oT-Stb" id="8hJ-Ae-XyP">
+                                <segue destination="ajn-gz-a5u" kind="popoverPresentation" identifier="Search" popoverAnchorBarButtonItem="YsS-oT-Stb" id="yWc-a1-iKh">
                                     <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                                 </segue>
                             </connections>
@@ -127,7 +127,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H48-0S-0rK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="794.5" y="432.5"/>
+            <point key="canvasLocation" x="396" y="417"/>
         </scene>
         <!--Preferences-->
         <scene sceneID="yY3-5T-wHQ">
@@ -152,11 +152,11 @@
                                         <rect key="frame" x="0.0" y="56" width="300" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fW3-Hx-QLq" id="XaO-Ts-m3g">
-                                            <rect key="frame" x="0.0" y="0.0" width="267" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="267" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5SX-fo-pf4">
-                                                    <rect key="frame" x="15" y="0.0" width="250" height="43.5"/>
+                                                    <rect key="frame" x="15" y="0.0" width="250" height="43"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -173,10 +173,10 @@
                             <tableViewSection headerTitle="徒歩" id="2hY-mI-mbp">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="PgK-RR-wtP">
-                                        <rect key="frame" x="0.0" y="156" width="300" height="44"/>
+                                        <rect key="frame" x="0.0" y="157" width="300" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PgK-RR-wtP" id="6k7-p5-xzB">
-                                            <rect key="frame" x="0.0" y="0.0" width="300" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="NWY-MM-Mwr">
@@ -187,7 +187,7 @@
                                                         <segment title="10分以内"/>
                                                     </segments>
                                                     <connections>
-                                                        <action selector="rangeDidChange:" destination="WDL-dz-542" eventType="valueChanged" id="3kx-N5-Zk5"/>
+                                                        <action selector="rangeDidChangeWithSender:" destination="WDL-dz-542" eventType="valueChanged" id="xFY-BX-bLi"/>
                                                     </connections>
                                                 </segmentedControl>
                                             </subviews>
@@ -213,7 +213,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eXa-xh-byv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1712" y="608"/>
+            <point key="canvasLocation" x="1771" y="655"/>
         </scene>
         <!--ジャンル-->
         <scene sceneID="cAh-oW-i2c">
@@ -235,11 +235,11 @@
                                         <rect key="frame" x="0.0" y="28" width="300" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WhE-jd-Cj7" id="KUF-Uf-8dk">
-                                            <rect key="frame" x="0.0" y="0.0" width="300" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="JJc-Hf-tVU">
-                                                    <rect key="frame" x="15" y="0.0" width="270" height="43.5"/>
+                                                    <rect key="frame" x="15" y="0.0" width="270" height="43"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -266,7 +266,7 @@
                     <navigationItem key="navigationItem" title="ジャンル" id="ZaA-oB-Plu">
                         <barButtonItem key="rightBarButtonItem" title="すべて" id="N7e-ML-5yn">
                             <connections>
-                                <action selector="clear:" destination="7HI-CM-RJH" id="KSj-Hl-aTb"/>
+                                <action selector="clearWithSender:" destination="7HI-CM-RJH" id="ib7-AM-ZLB"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -276,7 +276,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PrL-wJ-7eM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2136" y="608"/>
+            <point key="canvasLocation" x="2421" y="655"/>
         </scene>
         <!--詳細-->
         <scene sceneID="kTU-uz-xHX">
@@ -319,7 +319,7 @@
                     <navigationItem key="navigationItem" title="詳細" id="Q6a-6O-p8P">
                         <barButtonItem key="rightBarButtonItem" systemItem="action" id="kL6-5x-yjc">
                             <connections>
-                                <action selector="showActions:" destination="lyi-Jk-nDC" id="bMq-Mz-hod"/>
+                                <action selector="showActionsWithSender:" destination="lyi-Jk-nDC" id="Z49-YW-X99"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -366,7 +366,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yaE-cl-BIN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-151" y="432"/>
+            <point key="canvasLocation" x="-426" y="417"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="3lk-Mt-DGO">
@@ -387,7 +387,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rrH-Bj-Egp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1267" y="608"/>
+            <point key="canvasLocation" x="1128" y="655"/>
         </scene>
     </scenes>
     <resources>

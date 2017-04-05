@@ -36,7 +36,7 @@ extension Document
         var folders: [Folder] = []
         var styles: [String: Style] = [:]
         for childNode in node.children {
-            guard let childNodeName = childNode.name?.lowercaseString else {
+            guard let childNodeName = childNode.name?.lowercased() else {
                 continue
             }
             
@@ -46,9 +46,9 @@ extension Document
             case "description":
                 description = childNode.content ?? ""
             case "folder":
-                folders.append(Folder.fromJiNode(childNode))
+                folders.append(Folder.fromJiNode(node: childNode))
             case "style":
-                let style = Style.fromJiNode(childNode)
+                let style = Style.fromJiNode(node: childNode)
                 styles[style.id] = style
             default:
                 break
