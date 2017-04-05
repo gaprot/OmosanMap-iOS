@@ -47,7 +47,7 @@ class PlaceDetailViewController: UIViewController {
 }
 
 fileprivate extension PlaceDetailViewController {
-    fileprivate func update() {
+    func update() {
         guard let placemark = self.placemark else {
             return
         }
@@ -81,7 +81,7 @@ fileprivate extension PlaceDetailViewController {
     /**
      Safariで検索.
      */
-    fileprivate func searchInSafari() {
+    func searchInSafari() {
         guard
             let placemark = self.placemark,
             let url = URL(string: "x-web-search://?\(placemark.name.encodingToURIRepresentation())")
@@ -95,7 +95,7 @@ fileprivate extension PlaceDetailViewController {
     /**
      マップで開く.
      */
-    fileprivate func openInMap() {
+    func openInMap() {
         guard
             let placemark = self.placemark,
             let url = URL(string: "https://maps.apple.com/?ll=\(placemark.coordinate.latitude),\(placemark.coordinate.longitude)&q=\(placemark.name.encodingToURIRepresentation())")

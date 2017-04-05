@@ -133,7 +133,7 @@ extension MapViewController: SearchOptionsControllerDelegate {
     }
 }
 
-extension MapViewController {
+fileprivate extension MapViewController {
     func loadData() {
         if DocumentDataSource.shared.hasDocument {
             return
