@@ -12,7 +12,7 @@ import Ji
 extension JiNode {
     func firstChildNoCase(with name: String) -> JiNode? {
         for childNode in self.children {
-            if childNode.name?.lowercaseString == name {
+            if childNode.name?.lowercased() == name {
                 return childNode
             }
         }

@@ -31,7 +31,7 @@ extension Folder
         var name = ""
         var placemarks: [Placemark] = []
         for childNode in node.children {
-            guard let childNodeName = childNode.name?.lowercaseString else {
+            guard let childNodeName = childNode.name?.lowercased() else {
                 continue
             }
             
@@ -39,7 +39,7 @@ extension Folder
             case "name":
                 name = childNode.content ?? ""
             case "placemark":
-                placemarks.append(Placemark.fromJiNode(childNode))
+                placemarks.append(Placemark.fromJiNode(node: childNode))
             default:
                 break
             }
@@ -52,7 +52,7 @@ extension Folder
 import CoreLocation
 extension Folder {
     func placemarksInRange(
-        baseLocation baseLocation: CLLocation,
+        baseLocation: CLLocation,
         distance: CLLocationDistance
     ) -> [Placemark] {
         return self.placemarks.filter { (placemark) -> Bool in
@@ -61,7 +61,7 @@ extension Folder {
                 longitude: placemark.coordinate.longitude
             )
             
-            return location.distanceFromLocation(baseLocation) <= distance
+            return location.distance(from: baseLocation) <= distance
         }
     }
 }

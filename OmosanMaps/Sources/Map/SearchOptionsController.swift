@@ -34,9 +34,9 @@ class SearchOptionsController: UITableViewController {
     // MARK: Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "Genre" {
-            guard let searchOptionsGenreListViewController = segue.destinationViewController as? SearchOptionsGenreListViewController else {
+            guard let searchOptionsGenreListViewController = segue.destination as? SearchOptionsGenreListViewController else {
                 return
             }
             
@@ -58,19 +58,19 @@ class SearchOptionsController: UITableViewController {
         self.filter.baseLocation = location
         self.filter.region = region
 
-        self.delegate?.searchOptionsController(self, didChangeFilter: self.filter)
+        self.delegate?.searchOptionsController(controller: self, didChangeFilter: self.filter)
     }
 }
 
 private extension SearchOptionsController {
     func handleGenreDidChange() {
         self.updateGenreNameLabel()
-        self.delegate?.searchOptionsController(self, didChangeFilter: self.filter)
+        self.delegate?.searchOptionsController(controller: self, didChangeFilter: self.filter)
     }
     
     func updateGenreNameLabel() {
         if let folderNames = self.filter.folderNames {
-            self.genreNameLabel.text = folderNames.joinWithSeparator(", ")
+            self.genreNameLabel.text = folderNames.joined(separator: ", ")
         } else {
             self.genreNameLabel.text = "すべて"
         }

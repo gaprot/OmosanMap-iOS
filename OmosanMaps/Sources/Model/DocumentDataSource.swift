@@ -13,88 +13,82 @@ import Ji
 
 class DocumentDataSource
 {
-    enum Error: ErrorType {
+    enum ErrorType: Error {
         case DownloadFailed
         case KMLParseFailed
     }
     
     static let shared: DocumentDataSource = DocumentDataSource()
     
-    private var basePath: String?
+    fileprivate var basePath: String?
     private(set) var document: Document?
     
     var hasDocument: Bool {
         return self.document != nil
     }
     
-    func fetch(URLString: String, handler: (error: ErrorType?) -> Void) {
+    func fetch(URLString: String, handler: @escaping (_ error: Error?) -> Void) {
         if self.hasDocument {
-            handler(error: nil)
+            handler(nil)
             return
         }
-        
-        let directoryURL = NSFileManager.defaultManager().URLsForDirectory(.CachesDirectory, inDomains: .UserDomainMask)[0]
-        var localURL: NSURL?
-        Alamofire
-            .download(
-                .GET,
-                URLString,
-                destination: { (temporaryURL, response) in
-                    // ファイルのダウンロード先を指定
-                    guard let pathComponent = response.suggestedFilename else {
-                        fatalError()
-                    }
-                    let destinationURL = directoryURL.URLByAppendingPathComponent(pathComponent)
 
-                    // 同名のファイルが残っている場合は削除しておく
-                    if
-                        let destinationPath = destinationURL.path
-                    where
-                        NSFileManager.defaultManager().fileExistsAtPath(destinationPath)
-                    {
-                        try! NSFileManager.defaultManager().removeItemAtPath(destinationPath)
-                    }
-                    
-                    localURL = destinationURL
-                    return destinationURL
-            }).response{ (request, response, data, error) in
-                var result: ErrorType?
-                defer {
-                    handler(error: result)
+        var directoryURL = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask)[0]
+        var localURL: URL?
+
+        Alamofire.download(URLString) { (temporaryURL, response) in
+            // ファイルのダウンロード先を指定
+            guard let pathComponent = response.suggestedFilename else {
+                    fatalError()
+            }
+
+            let destinationURL = directoryURL.appendingPathComponent(pathComponent)
+            let destinationPath = destinationURL.path
+
+            // 同名のファイルが残っている場合は削除しておく
+            if FileManager.default.fileExists(atPath: destinationPath) {
+                try! FileManager.default.removeItem(atPath: destinationPath)
+            }
+
+            localURL = destinationURL
+            return  (destinationURL, [.createIntermediateDirectories])
+        }.response { response in
+            var result: Error?
+            defer {
+                handler(result)
+            }
+
+            if let error = response.error {
+                result = error
+            } else {
+                guard let localPath = localURL?.path else {
+                    return
                 }
-                
-                if let error = error {
-                    result = error
+
+                let kmlDirPath = localPath.replacingOccurrences(of: ".kmz", with: "")
+                self.basePath = kmlDirPath
+
+                if FileManager.default.fileExists(atPath: kmlDirPath) {
+                    try! FileManager.default.removeItem(atPath: kmlDirPath)
+                }
+
+                // KMZファイルを展開
+                if SSZipArchive.unzipFile(atPath: localPath, toDestination: kmlDirPath) {
+                    let kmlPath = kmlDirPath.appending("/doc.kml")
+                    do {
+                        try self.parseKML(path: kmlPath)
+                    } catch let error {
+                        result = error
+                    }
+                    if let kml = try? String(contentsOfFile: kmlPath, encoding: String.Encoding.utf8) {
+                        print(kml)
+                    }
                 } else {
-                    guard let localPath = localURL?.path else {
-                        fatalError()
-                    }
-                    
-                    let kmlDirPath = localPath.stringByReplacingOccurrencesOfString(".kmz", withString: "")
-                    self.basePath = kmlDirPath
-                    
-                    if NSFileManager.defaultManager().fileExistsAtPath(kmlDirPath) {
-                        try! NSFileManager.defaultManager().removeItemAtPath(kmlDirPath)
-                    }
-
-                    // KMZファイルを展開
-                    if SSZipArchive.unzipFileAtPath(localPath, toDestination: kmlDirPath) {
-                        let kmlPath = kmlDirPath.stringByAppendingString("/doc.kml")
-                        do {
-                            try self.parseKML(kmlPath)
-                        } catch let error {
-                            result = error
-                        }
-                        if let kml = try? String(contentsOfFile: kmlPath, encoding: NSUTF8StringEncoding) {
-                            print(kml)
-                        }
-                    } else {
-                        // URLが間違っているとここに来ることがある
-                        result = Error.DownloadFailed
-                    }
+                    // URLが間違っているとここに来ることがある
+                    result = ErrorType.DownloadFailed
                 }
+            }
         }
-    
     }
     
     func clear() {
@@ -104,21 +98,19 @@ class DocumentDataSource
 // MARK: - parse KML
     
     private func parseKML(path: String) throws {
-        guard
-            let doc = Ji(xmlURL: NSURL(fileURLWithPath: path)),
-            let kmlNode = doc.rootNode
+        guard let doc = Ji(xmlURL: URL(fileURLWithPath: path)), let kmlNode = doc.rootNode
         else {
-            throw Error.KMLParseFailed
+            throw ErrorType.KMLParseFailed
         }
 
         for childNode in kmlNode.children {
-            guard let childNodeName = childNode.name?.lowercaseString else {
+            guard let childNodeName = childNode.name?.lowercased() else {
                 continue
             }
             
             switch childNodeName {
             case "document":
-                self.document = Document.fromJiNode(childNode)
+                self.document = Document.fromJiNode(node: childNode)
             default:
                 break
             }
@@ -135,24 +127,23 @@ extension DocumentDataSource {
         return style.color
     }
     
-    func iconURL(for styleID: String) -> NSURL? {
+    func iconURL(for styleID: String) -> URL? {
         guard let style = self.document?.styles[styleID] else {
             return nil
         }
 
         if
-            let urlComponents = NSURLComponents(string: style.iconRef)
-        where
+            let urlComponents = NSURLComponents(string: style.iconRef),
             urlComponents.scheme == "http" || urlComponents.scheme == "https"
         {
-            return NSURL(string: style.iconRef)!
+            return URL(string: style.iconRef)!
         }
         
         guard let basePath = self.basePath else {
             return nil
         }
-        let baseURL = NSURL(fileURLWithPath: basePath)
-        return baseURL.URLByAppendingPathComponent(style.iconRef)
+        let baseURL = URL(fileURLWithPath: basePath)
+        return baseURL.appendingPathComponent(style.iconRef)
     }
 }
 
@@ -201,8 +192,8 @@ extension DocumentDataSource {
         }
         
         func removeFolderName(name: String) {
-            if let index = self.folderNames?.indexOf(name) {
-                self.folderNames?.removeAtIndex(index)
+            if let index = self.folderNames?.index(of: name) {
+                self.folderNames?.remove(at: index)
             }
             if self.folderNames?.isEmpty ?? false {
                 self.folderNames = nil
@@ -225,7 +216,7 @@ extension DocumentDataSource {
         
         let folders: [Folder]
         if let folderNames = filter.folderNames {
-            folders = document.foldersForNames(folderNames)
+            folders = document.foldersForNames(names: folderNames)
         } else {
             folders = document.folders
         }

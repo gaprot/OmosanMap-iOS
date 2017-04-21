@@ -13,12 +13,12 @@ class LocationService: NSObject {
     static let shared = LocationService()
     
     private var locationManager = CLLocationManager()
-    private(set) var lastLocation: CLLocation?
-    private var startedAt: NSDate!
+    fileprivate(set) var lastLocation: CLLocation?
+    fileprivate var startedAt: NSDate!
     
     private override init() {
         super.init()
-        if CLLocationManager.authorizationStatus() != .AuthorizedWhenInUse {
+        if CLLocationManager.authorizationStatus() != .authorizedWhenInUse {
             self.locationManager.requestWhenInUseAuthorization()
         }
         self.locationManager.delegate = self
@@ -42,7 +42,7 @@ class LocationService: NSObject {
 
 // MARK: - CLLocationManagerDelegate
 extension LocationService: CLLocationManagerDelegate {
-    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.last else {
             return
         }
@@ -55,7 +55,7 @@ extension LocationService: CLLocationManagerDelegate {
         //print("location: \(location)")
     }
     
-    func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("Error: \(error)")
     }
 }
